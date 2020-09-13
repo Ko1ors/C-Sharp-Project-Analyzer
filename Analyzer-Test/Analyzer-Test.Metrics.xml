@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeMetricsReport Version="1.0">
+  <Targets>
+    <Target Name="Analyzer-Test.csproj">
+      <Assembly Name="Analyzer-Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Metrics>
+          <Metric Name="MaintainabilityIndex" Value="86" />
+          <Metric Name="CyclomaticComplexity" Value="12" />
+          <Metric Name="ClassCoupling" Value="28" />
+          <Metric Name="DepthOfInheritance" Value="9" />
+          <Metric Name="LinesOfCode" Value="25" />
+        </Metrics>
+        <Namespaces>
+          <Namespace Name="Analyzer_Test">
+            <Metrics>
+              <Metric Name="MaintainabilityIndex" Value="84" />
+              <Metric Name="CyclomaticComplexity" Value="4" />
+              <Metric Name="ClassCoupling" Value="19" />
+              <Metric Name="DepthOfInheritance" Value="9" />
+              <Metric Name="LinesOfCode" Value="13" />
+            </Metrics>
+            <Types>
+              <NamedType Name="App">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="1" />
+                  <Metric Name="ClassCoupling" Value="1" />
+                  <Metric Name="DepthOfInheritance" Value="3" />
+                  <Metric Name="LinesOfCode" Value="0" />
+                </Metrics>
+                <Members>
+                  <Method Name="App.App()" File="C:\Users\Ko1ors\source\repos\Analyzer-Test\Analyzer-Test\App.xaml.cs" Line="14">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="LinesOfCode" Value="0" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+              <NamedType Name="MainWindow">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="69" />
+                  <Metric Name="CyclomaticComplexity" Value="3" />
+                  <Metric Name="ClassCoupling" Value="18" />
+                  <Metric Name="DepthOfInheritance" Value="9" />
+                  <Metric Name="LinesOfCode" Value="13" />
+                </Metrics>
+                <Members>
+                  <Method Name="MainWindow.MainWindow()" File="C:\Users\Ko1ors\source\repos\Analyzer-Test\Analyzer-Test\MainWindow.xaml.cs" Line="23">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="93" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="LinesOfCode" Value="2" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void MainWindow.Create()" File="C:\Users\Ko1ors\source\repos\Analyzer-Test\Analyzer-Test\MainWindow.xaml.cs" Line="29">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="61" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="16" />
+                      <Metric Name="LinesOfCode" Value="11" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+            </Types>
+          </Namespace>
+          <Namespace Name="Analyzer_Test.Properties">
+            <Metrics>
+              <Metric Name="MaintainabilityIndex" Value="89" />
+              <Metric Name="CyclomaticComplexity" Value="8" />
+              <Metric Name="ClassCoupling" Value="9" />
+              <Metric Name="DepthOfInheritance" Value="3" />
+              <Metric Name="LinesOfCode" Value="12" />
+            </Metrics>
+            <Types>
+              <NamedType Name="Resources">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="83" />
+                  <Metric Name="CyclomaticComplexity" Value="5" />
+                  <Metric Name="ClassCoupling" Value="8" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="LinesOfCode" Value="9" />
+                </Metrics>
+                <Members>
+                  <Method Name="Resources.Resources()" File="C:\Users\Ko1ors\source\repos\Analyzer-Test\Analyzer-Test\Properties\Resources.Designer.cs" Line="33">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="98" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="LinesOfCode" Value="1" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="ResourceManager Resources.ResourceManager.get" File="C:\Users\Ko1ors\source\repos\Analyzer-Test\Analyzer-Test\Properties\Resources.Designer.cs" Line="43">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="75" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="3" />
+                      <Metric Name="LinesOfCode" Value="4" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="CultureInfo Resources.Culture.get" File="C:\Users\Ko1ors\source\repos\Analyzer-Test\Analyzer-Test\Properties\Resources.Designer.cs" Line="61">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="LinesOfCode" Value="1" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void Resources.Culture.set" File="C:\Users\Ko1ors\source\repos\Analyzer-Test\Analyzer-Test\Properties\Resources.Designer.cs" Line="65">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="96" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="LinesOfCode" Value="1" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+              <NamedType Name="Settings">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="96" />
+                  <Metric Name="CyclomaticComplexity" Value="3" />
+                  <Metric Name="ClassCoupling" Value="3" />
+                  <Metric Name="DepthOfInheritance" Value="3" />
+                  <Metric Name="LinesOfCode" Value="3" />
+                </Metrics>
+                <Members>
+                  <Method Name="Settings Settings.Default.get" File="C:\Users\Ko1ors\source\repos\Analyzer-Test\Analyzer-Test\Properties\Settings.Designer.cs" Line="24">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="LinesOfCode" Value="1" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="Settings.Settings()" File="C:\Users\Ko1ors\source\repos\Analyzer-Test\Analyzer-Test\Properties\Settings.Designer.cs" Line="17">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="LinesOfCode" Value="0" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="Settings.Settings()" File="C:\Users\Ko1ors\source\repos\Analyzer-Test\Analyzer-Test\Properties\Settings.Designer.cs" Line="17">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="LinesOfCode" Value="0" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+            </Types>
+          </Namespace>
+        </Namespaces>
+      </Assembly>
+    </Target>
+  </Targets>
+</CodeMetricsReport>
