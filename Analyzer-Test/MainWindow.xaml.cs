@@ -42,6 +42,7 @@ namespace Analyzer_Test
             {
                 var com = project.GetCompilationAsync().Result;
                 var metric = CodeAnalysisMetricData.ComputeAsync(com.Assembly, new CodeMetricsAnalysisContext(com, CancellationToken.None)).Result;
+                textBox.Text += metric.ToString() + "\n";
                 builder.Add((project.FilePath, metric));
             }
 
