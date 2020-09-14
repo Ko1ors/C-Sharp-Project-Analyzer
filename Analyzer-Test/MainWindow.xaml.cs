@@ -1,13 +1,16 @@
-﻿using Microsoft.Build.Locator;
+﻿using Analyzer_Test.Analyzers;
+using Analyzer_Test.Analyzers.Design;
+using Microsoft.Build.Locator;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CodeMetrics;
 using System;
+using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-
+using System.Windows.Documents;
 
 namespace Analyzer_Test
 {
@@ -49,7 +52,27 @@ namespace Analyzer_Test
             Console.WriteLine(compilation.SyntaxTrees.Count());
             foreach (SyntaxTree tree in compilation.SyntaxTrees)
             {
+                AnalyzeTree(tree);
+                var node = tree.GetRoot();
+                DesignAnalyzers.Analyze(node);
+            }
+        }
 
+        public void AnalyzeTree(SyntaxTree tree)
+        {
+            var node = tree.GetRoot();
+            if (node.ChildNodes().Count() > 0)
+                AnalyzeNodes(node.ChildNodes().ToList());
+            DesignAnalyzers.Analyze(node);
+        }
+
+        public void AnalyzeNodes(List<SyntaxNode> nodeList)
+        {
+            foreach (var node in nodeList)
+            {
+                if (node.ChildNodes().Count() > 0)
+                    AnalyzeNodes(node.ChildNodes().ToList());
+                DesignAnalyzers.Analyze(node);
             }
         }
     }

@@ -181,6 +181,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="Analyzers\Design\CatchEmptyAnalyzer.cs" />
+    <Compile Include="Analyzers\Design\DesignAnalyzers.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
