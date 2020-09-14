@@ -49,6 +49,7 @@ namespace Analyzer_Test
             var compilationTask = proj.GetCompilationAsync();
             compilationTask.Wait();
             var compilation = compilationTask.Result;
+            AllAnalyzers.compilation = compilation;
             Console.WriteLine(compilation.SyntaxTrees.Count());
             foreach (SyntaxTree tree in compilation.SyntaxTrees)
             {

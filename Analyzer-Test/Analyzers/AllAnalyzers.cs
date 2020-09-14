@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.CodeAnalysis;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace Analyzer_Test.Analyzers
 {
     class AllAnalyzers
     {
+        public static Compilation compilation;
     }
 }

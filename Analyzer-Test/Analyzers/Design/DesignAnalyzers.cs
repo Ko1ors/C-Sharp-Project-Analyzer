@@ -21,6 +21,12 @@ namespace Analyzer_Test.Analyzers.Design
                     ReportAdd(GetNodeClass(node), "Contains empty catch.");
                 }
             }
+
+            if (node.IsKind(SyntaxKind.MethodDeclaration))
+            {
+                if (MakeMethodStaticAnalyzer.Analyze(node))
+                    ReportAdd(GetNodeClass(node), MakeMethodStaticAnalyzer.Title);
+            }
         }
 
         private static void ReportAdd(SyntaxNode node, String result)
