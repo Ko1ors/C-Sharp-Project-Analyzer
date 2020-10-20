@@ -1,5 +1,6 @@
 ﻿using Analyzer_Test.Analyzers;
 using Analyzer_Test.Analyzers.Design;
+using Analyzer_Test.Handlers.ProjectHandlers;
 using Microsoft.Build.Locator;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CodeMetrics;
@@ -27,35 +28,6 @@ namespace Analyzer_Test
             Create();
         }
 
-        public MSBuildWorkspace CreateWorkspace()
-        {
-            MSBuildLocator.RegisterDefaults();
-            var ws = Microsoft.CodeAnalysis.MSBuild.MSBuildWorkspace.Create();
-            ws.LoadMetadataForReferencedProjects = true;
-            return ws;
-        }
-
-        public Solution OpenSolution(MSBuildWorkspace ws, string solutionFilePath)
-        {
-            Task<Solution> slnTask = ws.OpenSolutionAsync(solutionFilePath);
-            slnTask.Wait();
-            return slnTask.Result;
-        }
-
-
-        public ImmutableArray<(string, CodeAnalysisMetricData)> ComputeSolutionMetric(Solution sln)
-        {
-            var builder = ImmutableArray.CreateBuilder<(string, CodeAnalysisMetricData)>();
-            foreach (var project in sln.Projects.ToList())
-            {
-                var compilationTask = project.GetCompilationAsync();
-                compilationTask.Wait();
-                var com = compilationTask.Result;
-                var metric = CodeAnalysisMetricData.ComputeAsync(com.Assembly, new CodeMetricsAnalysisContext(com, CancellationToken.None)).Result;
-                builder.Add((project.FilePath, metric));
-            }
-            return builder.ToImmutable();
-        }
 
         public void AnalyzeSolution(Solution sln)
         {
@@ -94,9 +66,13 @@ namespace Analyzer_Test
 
         public void Create()
         {
-            var ws = CreateWorkspace();
-            var sln = OpenSolution(ws, @"C:\Users\Ko1ors\source\repos\WpfApp5\WpfApp5.sln");
-            var metricList = ComputeSolutionMetric(sln).ToList();
+            var si = new Data.SolutionInfo();
+            si.solutionFilePath = @"C:\Users\Ko1ors\source\repos\WpfApp5\WpfApp5.sln";
+            var handler = new WorkspaceHandler();
+            var s = handler.Handle(si);
+            var ws = ProjectCreator.CreateWorkspace();
+            var sln = ProjectCreator.OpenSolution(ws, @"C:\Users\Ko1ors\source\repos\WpfApp5\WpfApp5.sln");
+            var metricList = ProjectCreator.ComputeSolutionMetric(sln).ToList();
             metricList.ForEach(e => textBox.Text += e.ToString() + "\n");
             AnalyzeSolution(sln);
 

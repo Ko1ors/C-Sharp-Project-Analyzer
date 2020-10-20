@@ -181,7 +181,7 @@
     <Compile Include="Data\SolutionInfo.cs" />
     <Compile Include="Handlers\ProjectHandlers\MetricHandler.cs" />
     <Compile Include="Handlers\ProjectHandlers\ProjectHandler.cs" />
-    <Compile Include="Data\Results\MetricResult.cs" />
+    <Compile Include="Data\Results\ProjectHandlerResult.cs" />
     <Compile Include="Data\Results\Result.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -204,6 +204,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Metrics.cs" />
+    <Compile Include="ProjectCreator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

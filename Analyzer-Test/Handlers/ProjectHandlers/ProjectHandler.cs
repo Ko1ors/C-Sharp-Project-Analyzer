@@ -1,4 +1,5 @@
 ﻿using Analyzer_Test.Data;
+using Analyzer_Test.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,6 @@ namespace Analyzer_Test.Handlers.ProjectHandlers
 			this.handler = handler;
 		}
 
-		public abstract void Handle(SolutionInfo si);
+		public abstract ProjectHandlerResult Handle(SolutionInfo si);
 	}
 }

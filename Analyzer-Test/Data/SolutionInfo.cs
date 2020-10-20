@@ -13,5 +13,10 @@ namespace Analyzer_Test.Data
         public MSBuildWorkspace ws;
         public string solutionFilePath;
         public Solution sln;
+
+        public void SetWorkspace(MSBuildWorkspace ws)
+        {
+            this.ws = ws;
+        }
     }
 }
