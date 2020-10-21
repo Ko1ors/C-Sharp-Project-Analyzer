@@ -12,6 +12,6 @@ namespace Analyzer_Test.Analyzers
         public string Title { get; protected set; }
         public string Description { get; protected set; }
 
-    public abstract bool Analyze(SyntaxNode node, Data.SolutionInfo si);
+        public abstract bool Analyze(SyntaxNode node, Data.SolutionInfo si);
     }
 }

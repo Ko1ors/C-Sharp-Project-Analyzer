@@ -1,4 +1,5 @@
-﻿using Microsoft.CodeAnalysis;
+﻿using Analyzer_Test.Analyzers.Group_Analyzers;
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System;
@@ -8,11 +9,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Analyzer_Test.Analyzers.Design
-{
-    class DesignAnalyzers
+{  
+    public class DesignAnalyzers : AbstractGroupAnalyzer
     {
-        private  Dictionary<SyntaxNode, List<String>> report = new Dictionary<SyntaxNode, List<string>>();
-        public void Analyze(SyntaxNode node)
+
+        public DesignAnalyzers()
+        {
+            analyzers = new List<AbstractAnalyzer>();
+        }
+       
+        public override bool Analyze(SyntaxNode node, Data.SolutionInfo si)
         {
             if (node.IsKind(SyntaxKind.CatchClause))
             {
@@ -24,9 +30,11 @@ namespace Analyzer_Test.Analyzers.Design
 
             if (node.IsKind(SyntaxKind.MethodDeclaration))
             {
-                if (MakeMethodStaticAnalyzer.Analyze(node))
-                    ReportAdd(GetNodeClass(node), MakeMethodStaticAnalyzer.Title);
+                var mmsa = new MakeMethodStaticAnalyzer();
+                if (mmsa.Analyze(node,si))
+                    ReportAdd(GetNodeClass(node), mmsa.Title);
             }
+            return true;
         }
 
         private void ReportAdd(SyntaxNode node, String result)
@@ -50,5 +58,6 @@ namespace Analyzer_Test.Analyzers.Design
         {
             return report;
         }
+
     }
 }

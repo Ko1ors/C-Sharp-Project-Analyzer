@@ -28,7 +28,7 @@ namespace Analyzer_Test
             Create();
         }
 
-
+        /*
         public void AnalyzeSolution(Solution sln)
         {
             foreach (var project in sln.Projects.ToList())
@@ -62,7 +62,7 @@ namespace Analyzer_Test
                     AnalyzeNodes(node.ChildNodes().ToList());
                 DesignAnalyzers.Analyze(node);
             }
-        }
+        }*/
 
         public void Create()
         {
