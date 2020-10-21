@@ -178,6 +178,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Analyzers\AnalyzerBase.cs" />
     <Compile Include="Analyzers\Group Analyzers\AbstractGroupAnalyzer.cs" />
     <Compile Include="Analyzers\Single Analyzers\AbstractAnalyzer.cs" />
     <Compile Include="Data\SolutionInfo.cs" />
