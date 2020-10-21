@@ -52,5 +52,36 @@ namespace Analyzer_Test
             }
             return null;
         }
+
+        public static ImmutableArray<(string, CodeAnalysisMetricData)>? TryComputeSolutionMetric(ImmutableArray<(string, Compilation)> comList)
+        {
+            if (comList != null && comList.Count() > 0)
+            {
+                var builder = ImmutableArray.CreateBuilder<(string, CodeAnalysisMetricData)>();
+                foreach (var com in comList)
+                {
+                    var metric = CodeAnalysisMetricData.ComputeAsync(com.Item2.Assembly, new CodeMetricsAnalysisContext(com.Item2, CancellationToken.None)).Result;
+                    builder.Add((com.Item1, metric));
+                }
+                return builder.ToImmutable();
+            }
+            return null;
+        }
+
+        public static ImmutableArray<(string, Compilation)>? TryCompileSolution(Solution sln)
+        {
+            if (sln != null && sln.Projects.Count() > 0)
+            {
+                var builder = ImmutableArray.CreateBuilder<(string, Compilation)> ();
+                foreach (var project in sln.Projects.ToList())
+                {
+                    var compilationTask = project.GetCompilationAsync();
+                    compilationTask.Wait();
+                    builder.Add((project.FilePath, compilationTask.Result));
+                }
+                return builder.ToImmutable();
+            }
+            return null;
+        }
     }
 }

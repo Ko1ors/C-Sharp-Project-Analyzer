@@ -10,7 +10,6 @@ namespace Analyzer_Test.Analyzers
 {
     class AllAnalyzers : AbstractGroupAnalyzer
     {
-        public Compilation compilation;
 
         public override bool Analyze(SyntaxNode node, Data.SolutionInfo si)
         {

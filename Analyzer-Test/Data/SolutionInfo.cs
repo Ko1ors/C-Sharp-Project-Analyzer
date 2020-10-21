@@ -10,10 +10,10 @@ namespace Analyzer_Test.Data
 {
     public class SolutionInfo
     {
-        public MSBuildWorkspace ws;
-        public string solutionFilePath;
-        public Solution sln;
-        public Compilation compilation;
+        public MSBuildWorkspace ws { get; private set; }
+        public string solutionFilePath { get; set; }
+        public Solution sln { get; private set; }
+        public Compilation compilation { get; private set; }
 
         public void SetWorkspace(MSBuildWorkspace ws)
         {
@@ -23,6 +23,11 @@ namespace Analyzer_Test.Data
         public void SetSolution(Solution sln)
         {
             this.sln = sln;
+        }
+
+        public void SetCompilation(Compilation compilation)
+        {
+            this.compilation = compilation;
         }
     }
 }

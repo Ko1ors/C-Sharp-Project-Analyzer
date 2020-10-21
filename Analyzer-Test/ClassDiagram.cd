@@ -1,80 +1,80 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="Analyzer_Test.Handlers.ProjectHandlers.WorkspaceHandler">
-    <Position X="12.25" Y="9.25" Width="3.25" />
+    <Position X="8.75" Y="14.75" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
       <FileName>Handlers\ProjectHandlers\WorkspaceHandler.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Analyzer_Test.Handlers.ProjectHandlers.SolutionHandler">
-    <Position X="10.25" Y="11.25" Width="3.25" />
+    <Position X="4.75" Y="14.75" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
       <FileName>Handlers\ProjectHandlers\SolutionHandler.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Analyzer_Test.Handlers.ProjectHandlers.ProjectHandler">
-    <Position X="11.5" Y="5.5" Width="3.25" />
+    <Position X="10.75" Y="12.25" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAgAAAAAAIAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
       <FileName>Handlers\ProjectHandlers\ProjectHandler.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Analyzer_Test.Handlers.ProjectHandlers.MetricHandler">
-    <Position X="12.25" Y="7.75" Width="3.25" />
+    <Position X="12.75" Y="14.75" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
       <FileName>Handlers\ProjectHandlers\MetricHandler.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Analyzer_Test.ProjectCreator" Collapsed="true">
-    <Position X="10" Y="6.75" Width="1.5" />
+    <Position X="22.25" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAQ=</HashCode>
       <FileName>ProjectCreator.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Analyzer_Test.Data.SolutionInfo">
-    <Position X="12.5" Y="2.75" Width="1.5" />
+    <Position X="0.5" Y="12.75" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>QAAEAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAIAAIAAA=</HashCode>
+      <HashCode>QAIEAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAIAAIAAA=</HashCode>
       <FileName>Data\SolutionInfo.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Analyzer_Test.MainWindow" BaseTypeListCollapsed="true">
-    <Position X="5.5" Y="10.75" Width="1.5" />
+    <Position X="4.25" Y="18.75" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAACAAAAAA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Analyzer_Test.Handlers.ProjectHandlers.CompilationHandler">
-    <Position X="16" Y="7.75" Width="2.25" />
+    <Position X="16.75" Y="14.75" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
       <FileName>Handlers\ProjectHandlers\CompilationHandler.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Analyzer_Test.Analyzers.CatchEmptyAnalyzer">
-    <Position X="5" Y="4.5" Width="1.5" />
+    <Position X="17.75" Y="6.75" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Analyzers\Single Analyzers\Design\CatchEmptyAnalyzer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Analyzer_Test.Analyzers.AbstractAnalyzer">
-    <Position X="3.75" Y="2" Width="1.5" />
+    <Position X="11.25" Y="4.25" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAIgAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Analyzers\Single Analyzers\AbstractAnalyzer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Analyzer_Test.Analyzers.AnalyzerBase">
-    <Position X="0.5" Y="1" Width="1.5" />
+    <Position X="11.25" Y="1" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AQIAAAAAAAIAAAEAAAAABAAAAAAAIQAAAAAAAAAAAQA=</HashCode>
+      <HashCode>AAIAAAAAAAIAAAAAAAAABAAAAAAAYAAAAAAAAAAABAA=</HashCode>
       <FileName>Analyzers\AnalyzerBase.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -82,42 +82,42 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Analyzer_Test.Analyzers.AllAnalyzers">
-    <Position X="7.25" Y="4.5" Width="1.5" />
+    <Position X="13.5" Y="9" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Analyzers\Group Analyzers\AllAnalyzer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Analyzer_Test.Analyzers.Design.MakeMethodStaticAnalyzer">
-    <Position X="0.5" Y="4.5" Width="1.5" />
+    <Position X="5" Y="6.75" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Analyzers\Single Analyzers\Design\MakeMethodStaticAnalyzer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Analyzer_Test.Analyzers.Design.DesignAnalyzers">
-    <Position X="2.75" Y="6.75" Width="1.5" />
+    <Position X="9.25" Y="9" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAAABAAAIAAAAgAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
       <FileName>Analyzers\Group Analyzers\DesignAnalyzer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Analyzer_Test.Analyzers.Group_Analyzers.AbstractGroupAnalyzer">
-    <Position X="2.75" Y="4.5" Width="1.5" />
+    <Position X="11" Y="6.75" Width="4" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
       <FileName>Analyzers\Group Analyzers\AbstractGroupAnalyzer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Analyzer_Test.Results.Result" Collapsed="true">
-    <Position X="9.5" Y="2" Width="1.5" />
+    <Position X="4.25" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
       <FileName>Data\Results\Result.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Analyzer_Test.Results.ProjectHandlerResult">
-    <Position X="9.5" Y="3.25" Width="1.5" />
+    <Position X="4.25" Y="10.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>Data\Results\ProjectHandlerResult.cs</FileName>
@@ -127,19 +127,19 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Analyzer_Test.Properties.Resources" Collapsed="true">
-    <Position X="9.5" Y="5.75" Width="1.5" />
+    <Position X="24" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="Analyzer_Test.Properties.Settings" Collapsed="true">
-    <Position X="11" Y="1.25" Width="1.5" />
+    <Position X="22.25" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="System.Windows.Window" Collapsed="true">
-    <Position X="5.5" Y="9.75" Width="1.5" />
+    <Position X="5.25" Y="17.25" Width="1.5" />
     <TypeIdentifier />
   </Class>
   <Font Name="Segoe UI" Size="9" />
