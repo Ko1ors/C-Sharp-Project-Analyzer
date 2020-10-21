@@ -12,7 +12,7 @@ namespace Analyzer_Test.Handlers.ProjectHandlers
     {
         public override ProjectHandlerResult Handle(SolutionInfo si)
         {
-            var m = ProjectCreator.ComputeSolutionMetric(si?.sln);
+            var m = ProjectCreator.TryComputeSolutionMetric(si?.sln);
             if(handler != null)
             {
                 var phr = handler.Handle(si);

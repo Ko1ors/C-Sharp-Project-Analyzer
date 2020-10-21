@@ -68,10 +68,16 @@ namespace Analyzer_Test
         {
             var si = new Data.SolutionInfo();
             si.solutionFilePath = @"C:\Users\Ko1ors\source\repos\WpfApp5\WpfApp5.sln";
-            var handler = new WorkspaceHandler();
-            var handlers = new SolutionHandler();
-            var t = handlers.Handle(si);
-            var s = handler.Handle(si);
+            var w = new WorkspaceHandler();
+            var s = new SolutionHandler();
+            var m = new MetricHandler();
+            w.SetHandler(s);
+            s.SetHandler(m);
+            var result = w.Handle(si);
+            var ss = 1;
+
+
+
             //var ws = ProjectCreator.CreateWorkspace();
            // var sln = ProjectCreator.OpenSolution(ws, @"C:\Users\Ko1ors\source\repos\WpfApp5\WpfApp5.sln");
             //var metricList = ProjectCreator.ComputeSolutionMetric(sln).ToList();

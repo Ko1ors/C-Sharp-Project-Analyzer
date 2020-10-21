@@ -189,7 +189,7 @@
     </Page>
     <Compile Include="Analyzers\AllAnalyzers.cs" />
     <Compile Include="Analyzers\Design\CatchEmptyAnalyzer.cs" />
-    <Compile Include="Analyzers\Design\DesignAnalyzers.cs" />
+    <Compile Include="Analyzers\DesignAnalyzers.cs" />
     <Compile Include="Analyzers\Design\MakeMethodStaticAnalyzer.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>

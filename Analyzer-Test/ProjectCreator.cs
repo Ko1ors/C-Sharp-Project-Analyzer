@@ -35,18 +35,22 @@ namespace Analyzer_Test
         }
 
 
-        public static ImmutableArray<(string, CodeAnalysisMetricData)> ComputeSolutionMetric(Solution sln)
+        public static ImmutableArray<(string, CodeAnalysisMetricData)>? TryComputeSolutionMetric(Solution sln)
         {
-            var builder = ImmutableArray.CreateBuilder<(string, CodeAnalysisMetricData)>();
-            foreach (var project in sln.Projects.ToList())
+            if(sln != null && sln.Projects.Count() > 0)
             {
-                var compilationTask = project.GetCompilationAsync();
-                compilationTask.Wait();
-                var com = compilationTask.Result;
-                var metric = CodeAnalysisMetricData.ComputeAsync(com.Assembly, new CodeMetricsAnalysisContext(com, CancellationToken.None)).Result;
-                builder.Add((project.FilePath, metric));
+                var builder = ImmutableArray.CreateBuilder<(string, CodeAnalysisMetricData)>();
+                foreach (var project in sln.Projects.ToList())
+                {
+                    var compilationTask = project.GetCompilationAsync();
+                    compilationTask.Wait();
+                    var com = compilationTask.Result;
+                    var metric = CodeAnalysisMetricData.ComputeAsync(com.Assembly, new CodeMetricsAnalysisContext(com, CancellationToken.None)).Result;
+                    builder.Add((project.FilePath, metric));
+                }
+                return builder.ToImmutable();
             }
-            return builder.ToImmutable();
+            return null;
         }
     }
 }

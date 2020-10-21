@@ -11,7 +11,7 @@ namespace Analyzer_Test.Results
 {
     public class ProjectHandlerResult : Result
     {
-        public ImmutableArray<(string, CodeAnalysisMetricData)> Metric;
+        public ImmutableArray<(string, CodeAnalysisMetricData)>? Metric;
 
         public SolutionInfo SolutionInfo;
     }
