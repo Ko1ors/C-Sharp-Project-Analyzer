@@ -2,6 +2,7 @@
 using Microsoft.CodeAnalysis.MSBuild;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,11 +14,18 @@ namespace Analyzer_Test.Data
         public MSBuildWorkspace ws { get; private set; }
         public string solutionFilePath { get; set; }
         public Solution sln { get; private set; }
-        public Compilation compilation { get; private set; }
+        public ImmutableArray<(string, Compilation)>? Compilation { get; private set; }
+
+        public string currentProject;
 
         public void SetWorkspace(MSBuildWorkspace ws)
         {
             this.ws = ws;
+        }
+
+        public Compilation GetCurrentCompilation()
+        {
+            return Compilation?.First(e => e.Item1.Equals(currentProject)).Item2;
         }
 
         public void SetSolution(Solution sln)
@@ -25,9 +33,9 @@ namespace Analyzer_Test.Data
             this.sln = sln;
         }
 
-        public void SetCompilation(Compilation compilation)
+        public void SetCompilation(ImmutableArray<(string, Compilation)>? compilation)
         {
-            this.compilation = compilation;
+            this.Compilation = compilation;
         }
     }
 }

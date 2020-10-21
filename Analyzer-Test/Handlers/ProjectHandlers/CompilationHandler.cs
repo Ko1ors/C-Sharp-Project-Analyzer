@@ -12,6 +12,7 @@ namespace Analyzer_Test.Handlers.ProjectHandlers
     {
         public override ProjectHandlerResult Handle(SolutionInfo si)
         {
+            si.SetCompilation(ProjectCreator.TryCompileSolution(si.sln));
             throw new NotImplementedException();
         }
     }

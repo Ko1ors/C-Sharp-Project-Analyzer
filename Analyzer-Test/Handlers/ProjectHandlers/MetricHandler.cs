@@ -20,7 +20,7 @@ namespace Analyzer_Test.Handlers.ProjectHandlers
                     phr.Metric = m;
                 return phr;
             }
-            return m == null ? new ProjectHandlerResult() { SolutionInfo = si, Status = "4", Message = "Metric wasn`t created" } : new ProjectHandlerResult() { SolutionInfo = si, Metric = m, Status = "5", Message = "Metric was created" };
+            return m == null ? new ProjectHandlerResult() { SolutionInfo = si, Status = "6", Message = "Metric wasn`t created" } : new ProjectHandlerResult() { SolutionInfo = si, Metric = m, Status = "7", Message = "Metric was created" };
         }
     }
 }

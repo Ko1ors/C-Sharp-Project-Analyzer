@@ -31,14 +31,14 @@
   <Class Name="Analyzer_Test.ProjectCreator" Collapsed="true">
     <Position X="22.25" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAQ=</HashCode>
+      <HashCode>AAAAAAAAAAAgAAAAQAAAAAAAAAAAAAAIAAAAAAAAAAQ=</HashCode>
       <FileName>ProjectCreator.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Analyzer_Test.Data.SolutionInfo">
     <Position X="0.5" Y="12.75" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>QAIEAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAIAAIAAA=</HashCode>
+      <HashCode>QAoEAAAAAQAAAAAAAAAAAAABCAAAAAAAAQAAIAAAAAA=</HashCode>
       <FileName>Data\SolutionInfo.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -49,13 +49,6 @@
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="Analyzer_Test.Handlers.ProjectHandlers.CompilationHandler">
-    <Position X="16.75" Y="14.75" Width="3.25" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
-      <FileName>Handlers\ProjectHandlers\CompilationHandler.cs</FileName>
-    </TypeIdentifier>
   </Class>
   <Class Name="Analyzer_Test.Analyzers.CatchEmptyAnalyzer">
     <Position X="17.75" Y="6.75" Width="3.5" />
@@ -141,6 +134,13 @@
   <Class Name="System.Windows.Window" Collapsed="true">
     <Position X="5.25" Y="17.25" Width="1.5" />
     <TypeIdentifier />
+  </Class>
+  <Class Name="Analyzer_Test.Handlers.ProjectHandlers.CompilationHandler">
+    <Position X="16.75" Y="14.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\ProjectHandlers\CompilationHandler.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

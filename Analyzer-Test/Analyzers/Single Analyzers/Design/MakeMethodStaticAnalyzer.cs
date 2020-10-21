@@ -35,8 +35,7 @@ namespace Analyzer_Test.Analyzers.Design
 
                 if (method.ExplicitInterfaceSpecifier != null)
                 return false;
-
-            var semanticModel = si.compilation.GetSemanticModel(node.SyntaxTree);
+            var semanticModel = si.GetCurrentCompilation().GetSemanticModel(node.SyntaxTree);
             var methodSymbol = semanticModel.GetDeclaredSymbol(method);
             if (methodSymbol == null) return false;
             //if (methodSymbol.IsImplementingInterface()) return false;
