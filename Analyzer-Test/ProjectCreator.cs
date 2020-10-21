@@ -5,6 +5,7 @@ using Microsoft.CodeAnalysis.MSBuild;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -22,11 +23,15 @@ namespace Analyzer_Test
             return ws;
         }
 
-        public static Solution OpenSolution(MSBuildWorkspace ws, string solutionFilePath)
+        public static Solution TryOpenSolution(MSBuildWorkspace ws, string solutionFilePath)
         {
-            Task<Solution> slnTask = ws.OpenSolutionAsync(solutionFilePath);
-            slnTask.Wait();
-            return slnTask.Result;
+            if(ws != null && solutionFilePath != null && File.Exists(solutionFilePath))
+            {
+                    Task<Solution> slnTask = ws.OpenSolutionAsync(solutionFilePath);
+                    slnTask.Wait();
+                    return slnTask.Result;
+            }
+            return null;
         }
 
 

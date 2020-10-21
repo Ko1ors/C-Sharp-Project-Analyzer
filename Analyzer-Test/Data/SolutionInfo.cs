@@ -18,5 +18,10 @@ namespace Analyzer_Test.Data
         {
             this.ws = ws;
         }
+
+        public void SetSolution(Solution sln)
+        {
+            this.sln = sln;
+        }
     }
 }

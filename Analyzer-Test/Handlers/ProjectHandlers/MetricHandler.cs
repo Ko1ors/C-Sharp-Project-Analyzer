@@ -12,7 +12,15 @@ namespace Analyzer_Test.Handlers.ProjectHandlers
     {
         public override ProjectHandlerResult Handle(SolutionInfo si)
         {
-            throw new NotImplementedException();
+            var m = ProjectCreator.ComputeSolutionMetric(si?.sln);
+            if(handler != null)
+            {
+                var phr = handler.Handle(si);
+                if(phr.Metric == null && m != null)
+                    phr.Metric = m;
+                return phr;
+            }
+            return m == null ? new ProjectHandlerResult() { SolutionInfo = si, Status = "4", Message = "Metric wasn`t created" } : new ProjectHandlerResult() { SolutionInfo = si, Metric = m, Status = "5", Message = "Metric was created" };
         }
     }
 }
