@@ -11,8 +11,8 @@ namespace Analyzer_Test.Analyzers.Design
 {
     class DesignAnalyzers
     {
-        private static Dictionary<SyntaxNode, List<String>> report = new Dictionary<SyntaxNode, List<string>>();
-        public static void Analyze(SyntaxNode node)
+        private  Dictionary<SyntaxNode, List<String>> report = new Dictionary<SyntaxNode, List<string>>();
+        public void Analyze(SyntaxNode node)
         {
             if (node.IsKind(SyntaxKind.CatchClause))
             {
@@ -29,7 +29,7 @@ namespace Analyzer_Test.Analyzers.Design
             }
         }
 
-        private static void ReportAdd(SyntaxNode node, String result)
+        private void ReportAdd(SyntaxNode node, String result)
         {
             if (report.TryGetValue(node, out var results))
                 results.Add(result);
@@ -38,7 +38,7 @@ namespace Analyzer_Test.Analyzers.Design
             Console.WriteLine((node as TypeDeclarationSyntax).Identifier.ValueText);
         }
 
-        public static SyntaxNode GetNodeClass(SyntaxNode node)
+        public  SyntaxNode GetNodeClass(SyntaxNode node)
         {
             var tree = node.SyntaxTree;
             if (tree is null)
@@ -46,7 +46,7 @@ namespace Analyzer_Test.Analyzers.Design
             return tree.GetRoot().DescendantNodes().OfType<ClassDeclarationSyntax>().Last();
         }
 
-        public static Dictionary<SyntaxNode, List<String>> GetReport()
+        public Dictionary<SyntaxNode, List<String>> GetReport()
         {
             return report;
         }

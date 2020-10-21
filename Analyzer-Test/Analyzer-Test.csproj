@@ -181,6 +181,7 @@
     <Compile Include="Analyzers\Group Analyzers\AbstractGroupAnalyzer.cs" />
     <Compile Include="Analyzers\Single Analyzers\AbstractAnalyzer.cs" />
     <Compile Include="Data\SolutionInfo.cs" />
+    <Compile Include="Handlers\ProjectHandlers\CompilationHandler.cs" />
     <Compile Include="Handlers\ProjectHandlers\MetricHandler.cs" />
     <Compile Include="Handlers\ProjectHandlers\ProjectHandler.cs" />
     <Compile Include="Data\Results\ProjectHandlerResult.cs" />

@@ -9,6 +9,6 @@ namespace Analyzer_Test.Analyzers
 {
     class AllAnalyzers
     {
-        public static Compilation compilation;
+        public Compilation compilation;
     }
 }
