@@ -178,6 +178,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Analyzers\Group Analyzers\AbstractGroupAnalyzer.cs" />
+    <Compile Include="Analyzers\Single Analyzers\AbstractAnalyzer.cs" />
     <Compile Include="Data\SolutionInfo.cs" />
     <Compile Include="Handlers\ProjectHandlers\MetricHandler.cs" />
     <Compile Include="Handlers\ProjectHandlers\ProjectHandler.cs" />
@@ -187,10 +189,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Analyzers\AllAnalyzers.cs" />
-    <Compile Include="Analyzers\Design\CatchEmptyAnalyzer.cs" />
-    <Compile Include="Analyzers\DesignAnalyzers.cs" />
-    <Compile Include="Analyzers\Design\MakeMethodStaticAnalyzer.cs" />
+    <Compile Include="Analyzers\Group Analyzers\AllAnalyzer.cs" />
+    <Compile Include="Analyzers\Single Analyzers\Design\CatchEmptyAnalyzer.cs" />
+    <Compile Include="Analyzers\Group Analyzers\DesignAnalyzer.cs" />
+    <Compile Include="Analyzers\Single Analyzers\Design\MakeMethodStaticAnalyzer.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -241,7 +243,13 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.DependencyValidation.Analyzers.0.11.0\analyzers\dotnet\cs\Microsoft.DependencyValidation.Analyzers.resources.dll" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Analyzers\Single Analyzers\Perfomance\" />
+    <Folder Include="Analyzers\Single Analyzers\Refactoring\" />
+    <Folder Include="Analyzers\Single Analyzers\Reliability\" />
+    <Folder Include="Analyzers\Single Analyzers\Style\" />
+    <Folder Include="Analyzers\Single Analyzers\Usage\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
