@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Analyzer_Test.Analyzers
 {
-    public class AnalyzerBase
+    public abstract class AnalyzerBase
     {
         public AbstractAnalyzer analyzer;
 
-        private Data.SolutionInfo solutionInfo;
+        protected Data.SolutionInfo solutionInfo;
 
-        private SyntaxNode node;
+        protected SyntaxNode node;
 
         public AnalyzerBase(AbstractAnalyzer analyzer, SyntaxNode node, Data.SolutionInfo si)
         {
@@ -36,5 +36,8 @@ namespace Analyzer_Test.Analyzers
         {
             return analyzer.Analyze(node,solutionInfo);
         }
+
+        public abstract void Add(AnalyzerBase c);
+        public abstract void Remove(AnalyzerBase c);
     }
 }
