@@ -71,6 +71,8 @@ namespace Analyzer_Test
             var w = new WorkspaceHandler();
             var s = new SolutionHandler();
             var m = new MetricHandler();
+            AnalyzerBase root = new AnalyzerComposite(new AllAnalyzers(),null,si);
+            root.Add(new AnalyzerComposite(new DesignAnalyzers(), null, si));
             w.SetHandler(s);
             s.SetHandler(m);
             var result = w.Handle(si);
