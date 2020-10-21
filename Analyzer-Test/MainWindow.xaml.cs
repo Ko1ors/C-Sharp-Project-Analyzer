@@ -1,18 +1,9 @@
 ﻿using Analyzer_Test.Analyzers;
 using Analyzer_Test.Analyzers.Design;
 using Analyzer_Test.Handlers.ProjectHandlers;
-using Microsoft.Build.Locator;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CodeMetrics;
-using Microsoft.CodeAnalysis.MSBuild;
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Documents;
+using System.Windows.Controls;
 
 namespace Analyzer_Test
 {
@@ -64,6 +55,16 @@ namespace Analyzer_Test
             }
         }*/
 
+        private TreeViewItem GenerateTree(AnalyzerBase node)
+        {
+            var item = new TreeViewItem() { Header = node.GetName() };
+            foreach (var child in node.GetChildren() ?? Enumerable.Empty<AnalyzerBase>())
+            {
+                item.Items.Add(GenerateTree(child));
+            }
+            return item;
+        }
+
         public void Create()
         {
             var si = new Data.SolutionInfo();
@@ -71,17 +72,20 @@ namespace Analyzer_Test
             var w = new WorkspaceHandler();
             var s = new SolutionHandler();
             var m = new MetricHandler();
-            AnalyzerBase root = new AnalyzerComposite(new AllAnalyzers(),null,si);
-            root.Add(new AnalyzerComposite(new DesignAnalyzers(), null, si));
+            AnalyzerBase root = new AnalyzerComposite(new AllAnalyzers());
+            AnalyzerBase da = new AnalyzerComposite(new DesignAnalyzers());
+            da.Add(new AnalyzerLeaf(new CatchEmptyAnalyzer()));
+            da.Add(new AnalyzerLeaf(new MakeMethodStaticAnalyzer()));
+            root.Add(da);
+            tree.Items.Add(GenerateTree(root));
             w.SetHandler(s);
             s.SetHandler(m);
             var result = w.Handle(si);
-            var ss = 1;
 
 
 
             //var ws = ProjectCreator.CreateWorkspace();
-           // var sln = ProjectCreator.OpenSolution(ws, @"C:\Users\Ko1ors\source\repos\WpfApp5\WpfApp5.sln");
+            // var sln = ProjectCreator.OpenSolution(ws, @"C:\Users\Ko1ors\source\repos\WpfApp5\WpfApp5.sln");
             //var metricList = ProjectCreator.ComputeSolutionMetric(sln).ToList();
             //metricList.ForEach(e => textBox.Text += e.ToString() + "\n");
             //AnalyzeSolution(sln);

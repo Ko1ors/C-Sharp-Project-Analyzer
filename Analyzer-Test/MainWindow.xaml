@@ -8,5 +8,6 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <TextBox x:Name="textBox"/>
+        <TreeView x:Name="tree" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto"/>
     </Grid>
 </Window>

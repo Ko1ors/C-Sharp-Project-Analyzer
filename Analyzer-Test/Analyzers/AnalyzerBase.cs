@@ -11,33 +11,28 @@ namespace Analyzer_Test.Analyzers
     {
         public AbstractAnalyzer analyzer;
 
-        protected Data.SolutionInfo solutionInfo;
 
-        protected SyntaxNode node;
-
-        public AnalyzerBase(AbstractAnalyzer analyzer, SyntaxNode node, Data.SolutionInfo si)
+        public AnalyzerBase(AbstractAnalyzer analyzer)
         {
             this.analyzer = analyzer;
-            this.node = node;
-            solutionInfo = si;
         }
 
-        public void SetNode(SyntaxNode node)
+        public bool Analyze(SyntaxNode node, Data.SolutionInfo si)
         {
-            this.node = node;
+            return analyzer.Analyze(node,si);
         }
 
-        public void SetSolutionInfo(Data.SolutionInfo si)
+        public virtual void Add(AnalyzerBase c) { }
+        public virtual void Remove(AnalyzerBase c) { }
+
+        public virtual List<AnalyzerBase> GetChildren() 
         {
-            solutionInfo = si;
+            return null;
         }
 
-        public bool Analyze()
+        public virtual string GetName()
         {
-            return analyzer.Analyze(node,solutionInfo);
+            return analyzer.ToString();
         }
-
-        public abstract void Add(AnalyzerBase c);
-        public abstract void Remove(AnalyzerBase c);
     }
 }
