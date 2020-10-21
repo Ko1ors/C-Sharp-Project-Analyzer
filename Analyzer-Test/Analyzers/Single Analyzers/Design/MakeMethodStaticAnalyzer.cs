@@ -9,14 +9,18 @@ using System.Threading.Tasks;
 
 namespace Analyzer_Test.Analyzers.Design
 {
-    class MakeMethodStaticAnalyzer
+    class MakeMethodStaticAnalyzer : AbstractAnalyzer
     {
-        internal const string Title = "Use static method";
-        internal const string Description = "If the method is not referencing any instance variable and if you are " +
-            "not creating a virtual, abstract, new or partial method, and if it is not a method override, " +
-            "your instance method may be changed to a static method.";
 
-        public static bool Analyze(SyntaxNode node)
+        public MakeMethodStaticAnalyzer()
+        {
+            Title = "Use static method";
+            Description = "If the method is not referencing any instance variable and if you are " +
+           "not creating a virtual, abstract, new or partial method, and if it is not a method override, " +
+           "your instance method may be changed to a static method.";
+        }
+
+        public override bool Analyze(SyntaxNode node, Data.SolutionInfo si)
         {
             var method = (MethodDeclarationSyntax)node;
             var syntaxList = new List<SyntaxKind> {SyntaxKind.StaticKeyword,
@@ -32,7 +36,7 @@ namespace Analyzer_Test.Analyzers.Design
                 if (method.ExplicitInterfaceSpecifier != null)
                 return false;
 
-            var semanticModel = AllAnalyzers.compilation.GetSemanticModel(node.SyntaxTree);
+            var semanticModel = si.compilation.GetSemanticModel(node.SyntaxTree);
             var methodSymbol = semanticModel.GetDeclaredSymbol(method);
             if (methodSymbol == null) return false;
             //if (methodSymbol.IsImplementingInterface()) return false;
