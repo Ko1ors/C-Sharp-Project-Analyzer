@@ -34,28 +34,9 @@ namespace Analyzer_Test
             return null;
         }
 
-
-        public static ImmutableArray<(string, CodeAnalysisMetricData)>? TryComputeSolutionMetric(Solution sln)
+        public static ImmutableArray<(string, CodeAnalysisMetricData)>? TryComputeSolutionMetric(ImmutableArray<(string, Compilation)>? comList)
         {
-            if(sln != null && sln.Projects.Count() > 0)
-            {
-                var builder = ImmutableArray.CreateBuilder<(string, CodeAnalysisMetricData)>();
-                foreach (var project in sln.Projects.ToList())
-                {
-                    var compilationTask = project.GetCompilationAsync();
-                    compilationTask.Wait();
-                    var com = compilationTask.Result;
-                    var metric = CodeAnalysisMetricData.ComputeAsync(com.Assembly, new CodeMetricsAnalysisContext(com, CancellationToken.None)).Result;
-                    builder.Add((project.FilePath, metric));
-                }
-                return builder.ToImmutable();
-            }
-            return null;
-        }
-
-        public static ImmutableArray<(string, CodeAnalysisMetricData)>? TryComputeSolutionMetric(ImmutableArray<(string, Compilation)> comList)
-        {
-            if (comList != null && comList.Count() > 0)
+            if (comList?.Count() > 0)
             {
                 var builder = ImmutableArray.CreateBuilder<(string, CodeAnalysisMetricData)>();
                 foreach (var com in comList)

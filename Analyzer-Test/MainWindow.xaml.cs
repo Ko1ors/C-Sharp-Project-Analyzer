@@ -1,6 +1,7 @@
 ﻿using Analyzer_Test.Analyzers;
 using Analyzer_Test.Analyzers.Design;
 using Analyzer_Test.Handlers.ProjectHandlers;
+using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,7 +17,7 @@ namespace Analyzer_Test
         public MainWindow()
         {
             InitializeComponent();
-            Create();
+            DriversTest();
         }
 
         /*
@@ -64,6 +65,39 @@ namespace Analyzer_Test
             }
             return item;
         }
+
+        private void DriversTest()
+        {
+            var si = new Data.SolutionInfo();
+            si.solutionFilePath = @"C:\Users\Ko1ors\source\repos\Ko1ors\PPZTicketsModel\PPZModel.sln";
+            var wh = new WorkspaceHandler();
+            var sh = new SolutionHandler();
+            var ch = new CompilationHandler();
+            var mh = new MetricHandler();
+            wh.SetHandler(sh);
+            sh.SetHandler(ch);
+            ch.SetHandler(mh);
+            var result = wh.Handle(si);
+            Console.WriteLine($"Status: {result.Status}");
+            Console.WriteLine($"Message: {result.Message}");
+            foreach(var m in result.Metric)
+            {
+                Console.WriteLine($"Project name: {m.Item1}");
+                Console.WriteLine($"Maintainability index: {m.Item2.MaintainabilityIndex}");
+                Console.WriteLine($"Cyclomatic complexity: {m.Item2.CyclomaticComplexity}");
+                Console.WriteLine($"Depth of inheritance: {m.Item2.DepthOfInheritance}");
+                Console.WriteLine($"Executable lines: {m.Item2.ExecutableLines}");
+                Console.WriteLine($"Source lines: {m.Item2.SourceLines}");
+            }
+        }
+
+
+
+
+
+
+
+
 
         public void Create()
         {
