@@ -1,11 +1,8 @@
 ﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Analyzer_Test.Analyzers.Design
 {
@@ -29,11 +26,11 @@ namespace Analyzer_Test.Analyzers.Design
                 SyntaxKind.NewKeyword,
                 SyntaxKind.AbstractKeyword,
                 SyntaxKind.OverrideKeyword };
-            if (method.Modifiers.Any( e => syntaxList.Contains(e.Kind())))
+            if (method.Modifiers.Any(e => syntaxList.Contains(e.Kind())))
                 return false;
 
 
-                if (method.ExplicitInterfaceSpecifier != null)
+            if (method.ExplicitInterfaceSpecifier != null)
                 return false;
             var semanticModel = si.GetCurrentCompilation().GetSemanticModel(node.SyntaxTree);
             var methodSymbol = semanticModel.GetDeclaredSymbol(method);

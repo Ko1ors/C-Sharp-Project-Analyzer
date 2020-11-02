@@ -16,7 +16,7 @@ namespace Analyzer_Test.Analyzers
             var catchStatement = (CatchClauseSyntax)node;
 
             if (catchStatement == null || catchStatement.Declaration != null) return false;
-            if (catchStatement.Block?.Statements.Count == 0) return true;
+            if (catchStatement.Block?.Statements.Count == 0) return false;
             return true;
         }
 

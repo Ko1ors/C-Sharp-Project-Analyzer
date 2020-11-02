@@ -1,4 +1,5 @@
-﻿using Microsoft.CodeAnalysis;
+﻿using Analyzer_Test.Data.Results;
+using Microsoft.CodeAnalysis;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,10 @@ namespace Analyzer_Test.Analyzers
         public string Description { get; protected set; }
 
         public abstract bool Analyze(SyntaxNode node, Data.SolutionInfo si);
+
+        public AnalyzerResult GetResult()
+        {
+            return new AnalyzerResult() { AnalyzerType = this.GetType(), Status = "1", Title = Title, Message = Description };
+        }
     }
 }

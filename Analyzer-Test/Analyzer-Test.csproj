@@ -178,11 +178,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Analyzers\AnalysisExtension.cs" />
     <Compile Include="Analyzers\AnalyzerBase.cs" />
     <Compile Include="Analyzers\AnalyzerComposite.cs" />
     <Compile Include="Analyzers\AnalyzerLeaf.cs" />
     <Compile Include="Analyzers\Group Analyzers\AbstractGroupAnalyzer.cs" />
     <Compile Include="Analyzers\Single Analyzers\AbstractAnalyzer.cs" />
+    <Compile Include="Analyzers\Single Analyzers\Perfomance\EmptyFinalizerAnalyzer.cs" />
     <Compile Include="Data\Results\AnalyzerResult.cs" />
     <Compile Include="Data\SolutionInfo.cs" />
     <Compile Include="Handlers\ProjectHandlers\CompilationHandler.cs" />
@@ -249,7 +251,6 @@
     <Analyzer Include="..\packages\Microsoft.DependencyValidation.Analyzers.0.11.0\analyzers\dotnet\cs\Microsoft.DependencyValidation.Analyzers.resources.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Analyzers\Single Analyzers\Perfomance\" />
     <Folder Include="Analyzers\Single Analyzers\Refactoring\" />
     <Folder Include="Analyzers\Single Analyzers\Reliability\" />
     <Folder Include="Analyzers\Single Analyzers\Style\" />
