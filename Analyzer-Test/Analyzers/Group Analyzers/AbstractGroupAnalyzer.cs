@@ -1,4 +1,5 @@
-﻿using Microsoft.CodeAnalysis;
+﻿using Analyzer_Test.Data.Results;
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System;
 using System.Collections.Generic;
@@ -10,15 +11,15 @@ namespace Analyzer_Test.Analyzers.Group_Analyzers
 {
     public abstract class AbstractGroupAnalyzer : AbstractAnalyzer
     {
-        public Dictionary<SyntaxNode, List<String>> report { get; protected set; } = new Dictionary<SyntaxNode, List<string>>();
+        public Dictionary<SyntaxNode, List<AnalyzerResult>> report { get; protected set; } = new Dictionary<SyntaxNode, List<AnalyzerResult>>();
         public List<AbstractAnalyzer> analyzers { get; protected set; }
 
-        protected void ReportAdd(SyntaxNode node, String result)
+        protected void ReportAdd(SyntaxNode node, AnalyzerResult result)
         {
             if (report.TryGetValue(node, out var results))
                 results.Add(result);
             else
-                report.Add(node, new List<string> { result });
+                report.Add(node, new List<AnalyzerResult> { result });
             Console.WriteLine((node as TypeDeclarationSyntax).Identifier.ValueText);
         }
 
@@ -30,7 +31,7 @@ namespace Analyzer_Test.Analyzers.Group_Analyzers
             return tree.GetRoot().DescendantNodes().OfType<ClassDeclarationSyntax>().Last();
         }
 
-        public Dictionary<SyntaxNode, List<String>> GetReport()
+        public Dictionary<SyntaxNode, List<AnalyzerResult>> GetReport()
         {
             return report;
         }
