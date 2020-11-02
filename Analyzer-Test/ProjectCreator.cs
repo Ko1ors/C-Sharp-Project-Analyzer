@@ -2,12 +2,9 @@
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CodeMetrics;
 using Microsoft.CodeAnalysis.MSBuild;
-using System;
-using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -25,11 +22,11 @@ namespace Analyzer_Test
 
         public static Solution TryOpenSolution(MSBuildWorkspace ws, string solutionFilePath)
         {
-            if(ws != null && solutionFilePath != null && File.Exists(solutionFilePath))
+            if (ws != null && solutionFilePath != null && File.Exists(solutionFilePath))
             {
-                    Task<Solution> slnTask = ws.OpenSolutionAsync(solutionFilePath);
-                    slnTask.Wait();
-                    return slnTask.Result;
+                Task<Solution> slnTask = ws.OpenSolutionAsync(solutionFilePath);
+                slnTask.Wait();
+                return slnTask.Result;
             }
             return null;
         }
@@ -53,7 +50,7 @@ namespace Analyzer_Test
         {
             if (sln != null && sln.Projects.Count() > 0)
             {
-                var builder = ImmutableArray.CreateBuilder<(string, Compilation)> ();
+                var builder = ImmutableArray.CreateBuilder<(string, Compilation)>();
                 foreach (var project in sln.Projects.ToList())
                 {
                     var compilationTask = project.GetCompilationAsync();

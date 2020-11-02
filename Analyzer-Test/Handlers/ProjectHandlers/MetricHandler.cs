@@ -1,10 +1,5 @@
 ﻿using Analyzer_Test.Data;
 using Analyzer_Test.Results;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Analyzer_Test.Handlers.ProjectHandlers
 {
@@ -13,10 +8,10 @@ namespace Analyzer_Test.Handlers.ProjectHandlers
         public override ProjectHandlerResult Handle(SolutionInfo si)
         {
             var m = ProjectCreator.TryComputeSolutionMetric(si?.Compilation);
-            if(handler != null)
+            if (handler != null)
             {
                 var phr = handler.Handle(si);
-                if(phr.Metric == null && m != null)
+                if (phr.Metric == null && m != null)
                     phr.Metric = m;
                 return phr;
             }

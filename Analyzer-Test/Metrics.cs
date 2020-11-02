@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Diagnostics;
-using System.IO;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Xml;
-using Microsoft.Build.Locator;
-using Microsoft.CodeAnalysis.CodeMetrics;
-using Microsoft.CodeAnalysis.MSBuild;
-
-namespace Analyzer_Test
+﻿namespace Analyzer_Test
 {
     /*
     internal sealed class Metrics

@@ -80,7 +80,7 @@ namespace Analyzer_Test
             var result = wh.Handle(si);
             Console.WriteLine($"Status: {result.Status}");
             Console.WriteLine($"Message: {result.Message}");
-            foreach(var m in result.Metric)
+            foreach (var m in result.Metric)
             {
                 Console.WriteLine($"Project name: {m.Item1}");
                 Console.WriteLine($"Maintainability index: {m.Item2.MaintainabilityIndex}");
