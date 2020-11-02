@@ -15,29 +15,24 @@ namespace Analyzer_Test.Analyzers.Design
 
         public DesignAnalyzers()
         {
-            analyzers = new List<AbstractAnalyzer>();
+            analyzers = new List<AbstractAnalyzer>()
+            {
+            new CatchEmptyAnalyzer(),
+            new MakeMethodStaticAnalyzer()
+            };
         }
        
         public override bool Analyze(SyntaxNode node, Data.SolutionInfo si)
         {
-            if (node.IsKind(SyntaxKind.CatchClause))
+            foreach(AbstractAnalyzer analyzer in analyzers)
             {
-                if (CatchEmptyAnalyzer.Analyze(node))
-                {
-                    ReportAdd(GetNodeClass(node), "Contains empty catch.");
-                }
+                if(analyzer.CheckConditionals(node))
+                    if(analyzer.Analyze(node,si))
+                        ReportAdd(GetNodeClass(node), analyzer.GetResult());
             }
-
-            if (node.IsKind(SyntaxKind.MethodDeclaration))
-            {
-                var mmsa = new MakeMethodStaticAnalyzer();
-                if (mmsa.Analyze(node,si))
-                    ReportAdd(GetNodeClass(node), mmsa.Title);
-            }
-            return true;
+            if(report.Count > 0)
+                return true;
+            return false;
         }
-
-        
-
     }
 }

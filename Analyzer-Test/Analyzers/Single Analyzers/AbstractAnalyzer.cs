@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Navigation;
 
 namespace Analyzer_Test.Analyzers
 {
@@ -19,5 +20,7 @@ namespace Analyzer_Test.Analyzers
         {
             return new AnalyzerResult() { AnalyzerType = this.GetType(), Status = "1", Title = Title, Message = Description };
         }
+
+        public virtual bool CheckConditionals(SyntaxNode node) => true;
     }
 }

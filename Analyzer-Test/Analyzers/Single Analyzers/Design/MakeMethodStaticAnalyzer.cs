@@ -59,5 +59,12 @@ namespace Analyzer_Test.Analyzers.Design
 
             return true;
         }
+
+        public override bool CheckConditionals(SyntaxNode node)
+        {
+            if (node.IsKind(SyntaxKind.MethodDeclaration))
+                return true;
+            return false;
+        }
     }
 }

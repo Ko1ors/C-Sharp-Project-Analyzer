@@ -1,4 +1,5 @@
 ﻿using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System;
 using System.Collections.Generic;
@@ -10,8 +11,7 @@ namespace Analyzer_Test.Analyzers
 {
     public class CatchEmptyAnalyzer : AbstractAnalyzer
     {
-
-        public static bool Analyze(SyntaxNode node)
+        public override bool Analyze(SyntaxNode node, Data.SolutionInfo si)
         {
             var catchStatement = (CatchClauseSyntax)node;
 
@@ -20,9 +20,11 @@ namespace Analyzer_Test.Analyzers
             return true;
         }
 
-        public override bool Analyze(SyntaxNode node, Data.SolutionInfo si)
+        public override bool CheckConditionals(SyntaxNode node)
         {
-            throw new NotImplementedException();
+            if (node.IsKind(SyntaxKind.CatchClause))
+                return true;
+            return false;
         }
     }
 }
