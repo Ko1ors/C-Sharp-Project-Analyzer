@@ -18,5 +18,12 @@ namespace Analyzer_Test.Analyzers.Single_Analyzers.Perfomance
                 return false;
             return true;
         }
+
+        public override bool CheckConditionals(SyntaxNode node)
+        {
+            if (node.IsKind(SyntaxKind.DestructorDeclaration))
+                return true;
+            return false;
+        }
     }
 }
