@@ -37,27 +37,7 @@ namespace Analyzer_Test.Analyzers.Design
             return true;
         }
 
-        private void ReportAdd(SyntaxNode node, String result)
-        {
-            if (report.TryGetValue(node, out var results))
-                results.Add(result);
-            else
-                report.Add(node,new List<string> { result });
-            Console.WriteLine((node as TypeDeclarationSyntax).Identifier.ValueText);
-        }
-
-        public  SyntaxNode GetNodeClass(SyntaxNode node)
-        {
-            var tree = node.SyntaxTree;
-            if (tree is null)
-                throw new Exception();
-            return tree.GetRoot().DescendantNodes().OfType<ClassDeclarationSyntax>().Last();
-        }
-
-        public Dictionary<SyntaxNode, List<String>> GetReport()
-        {
-            return report;
-        }
+        
 
     }
 }
