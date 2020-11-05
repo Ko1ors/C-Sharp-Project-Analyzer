@@ -3,12 +3,21 @@ using System.Collections.Generic;
 
 namespace Analyzer_Test.Analyzers
 {
-    public abstract class AnalyzerBase
+    public class AnalyzerBase
     {
         public AbstractAnalyzer analyzer;
 
 
         public AnalyzerBase(AbstractAnalyzer analyzer)
+        {
+            this.analyzer = analyzer;
+        }
+
+        public AnalyzerBase()
+        {
+        }
+
+        public void SetAnalyzer(AbstractAnalyzer analyzer)
         {
             this.analyzer = analyzer;
         }

@@ -74,6 +74,8 @@ namespace Analyzer_Test
             var sh = new SolutionHandler();
             var ch = new CompilationHandler();
             var mh = new MetricHandler();
+            var a = new AnalyzerBase(new CatchEmptyAnalyzer());
+            a.AnalyzerBase();
             wh.SetHandler(sh);
             sh.SetHandler(ch);
             ch.SetHandler(mh);
