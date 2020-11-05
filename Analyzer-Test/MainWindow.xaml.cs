@@ -159,14 +159,17 @@ namespace Analyzer_Test
                 var si = new Data.SolutionInfo();
                 si.solutionFilePath = path;
                 var result = handler.Handle(si);
-                var m = result.Metric.Value[0];
-                MetricTextBlock1.Text = $"Project name: {m.Item1}";
-                MetricTextBlock2.Text = $"Maintainability index: {m.Item2.MaintainabilityIndex}";
-                MetricTextBlock3.Text = $"Cyclomatic complexity: {m.Item2.CyclomaticComplexity}";
-                MetricTextBlock4.Text = $"Depth of inheritance: {m.Item2.DepthOfInheritance}";
-                MetricTextBlock5.Text = $"Executable lines: {m.Item2.ExecutableLines}";
-                MetricTextBlock6.Text = $"Source lines: {m.Item2.SourceLines}";
-                MetricTotalResult.Visibility = Visibility.Visible;
+                if (result.Status == "7") 
+                { 
+                    var m = result.Metric.Value[0];
+                    MetricTextBlock1.Text = $"Project name: {m.Item1.Split('\\').Last().Split('.').First()}";
+                    MetricTextBlock2.Text = $"Maintainability index: {m.Item2.MaintainabilityIndex}";
+                    MetricTextBlock3.Text = $"Cyclomatic complexity: {m.Item2.CyclomaticComplexity}";
+                    MetricTextBlock4.Text = $"Depth of inheritance: {m.Item2.DepthOfInheritance}";
+                    MetricTextBlock5.Text = $"Executable lines: {m.Item2.ExecutableLines}";
+                    MetricTextBlock6.Text = $"Source lines: {m.Item2.SourceLines}";
+                    MetricTotalResult.Visibility = Visibility.Visible;
+                }
             }
         }
     }

@@ -12,9 +12,14 @@ namespace Analyzer_Test
 {
     public static class ProjectCreator
     {
+        private static bool isWorkspaceRegistered;
         public static MSBuildWorkspace CreateWorkspace()
         {
-            MSBuildLocator.RegisterDefaults();
+            if (!isWorkspaceRegistered)
+            {
+                MSBuildLocator.RegisterDefaults();
+                isWorkspaceRegistered = true;
+            }
             var ws = Microsoft.CodeAnalysis.MSBuild.MSBuildWorkspace.Create();
             ws.LoadMetadataForReferencedProjects = true;
             return ws;
