@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Analyzer_Test
 {
@@ -75,7 +76,6 @@ namespace Analyzer_Test
             var ch = new CompilationHandler();
             var mh = new MetricHandler();
             var a = new AnalyzerBase(new CatchEmptyAnalyzer());
-            a.AnalyzerBase();
             wh.SetHandler(sh);
             sh.SetHandler(ch);
             ch.SetHandler(mh);
@@ -113,7 +113,7 @@ namespace Analyzer_Test
             da.Add(new AnalyzerLeaf(new CatchEmptyAnalyzer()));
             da.Add(new AnalyzerLeaf(new MakeMethodStaticAnalyzer()));
             root.Add(da);
-            tree.Items.Add(GenerateTree(root));
+           // tree.Items.Add(GenerateTree(root));
             w.SetHandler(s);
             s.SetHandler(m);
             var result = w.Handle(si);
@@ -157,6 +157,11 @@ namespace Analyzer_Test
                 var node = tree.GetRoot();
                 DesignAnalyzers.Analyze(node);
             }*/
+        }
+
+        private void CommonCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
         }
     }
 }
