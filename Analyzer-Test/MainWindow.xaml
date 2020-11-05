@@ -74,7 +74,7 @@
             </StackPanel>
         </DockPanel>
         <Grid Grid.Row="1" Background="Gainsboro" Grid.ColumnSpan="2">
-            <Border Background="White" BorderThickness="1,1,1,1" CornerRadius="10" Margin="50,50,50,50" Padding="20" BorderBrush="Black">
+            <Border x:Name="StartDialog"  Background="White" BorderThickness="1,1,1,1" CornerRadius="10" Margin="50,50,50,50" Padding="20" BorderBrush="Black">
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="30" Color="DarkSlateGray"/>
                 </Border.Effect>
@@ -95,6 +95,24 @@
                         </StackPanel>
                     </DockPanel>
                 </StackPanel>
+            </Border>
+            <Border x:Name="MetricTotalResult" Visibility="Hidden"  Background="White" BorderThickness="1,1,1,1" CornerRadius="10" Margin="200,20,200,200" Padding="20" BorderBrush="Black">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="10*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="MetricTextBlock1" Grid.Row="0" Text="Project Name" FontSize="15" FontFamily="Arial Black"/>
+                    <TextBlock x:Name="MetricTextBlock2" Grid.Row="1" Text="Maintainability index" FontSize="15" FontFamily="Arial Black"/>
+                    <TextBlock x:Name="MetricTextBlock3" Grid.Row="2" Text="Cyclomatic complexity" FontSize="15" FontFamily="Arial Black"/>
+                    <TextBlock x:Name="MetricTextBlock4" Grid.Row="3" Text="Depth of inheritance" FontSize="15" FontFamily="Arial Black"/>
+                    <TextBlock x:Name="MetricTextBlock5" Grid.Row="4" Text="Executable lines" FontSize="15" FontFamily="Arial Black"/>
+                    <TextBlock x:Name="MetricTextBlock6" Grid.Row="5" Text="Source lines" FontSize="15" FontFamily="Arial Black"/>
+                </Grid>
             </Border>
         </Grid>
     </Grid>

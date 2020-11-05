@@ -1,11 +1,11 @@
 ﻿using Analyzer_Test.Analyzers;
 using Analyzer_Test.Analyzers.Design;
 using Analyzer_Test.Handlers.ProjectHandlers;
+using Microsoft.Win32;
 using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 
 namespace Analyzer_Test
 {
@@ -14,48 +14,23 @@ namespace Analyzer_Test
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        ProjectHandler handler;
         public MainWindow()
         {
             InitializeComponent();
             DriversTest();
         }
 
-        /*
-        public void AnalyzeSolution(Solution sln)
+        private void SetProjectHandlers()
         {
-            foreach (var project in sln.Projects.ToList())
-            {
-                var compilationTask = project.GetCompilationAsync();
-                compilationTask.Wait();
-                var com = compilationTask.Result;
-                AllAnalyzers.compilation = com;
-                foreach (SyntaxTree tree in com.SyntaxTrees)
-                {
-                    AnalyzeTree(tree);
-                    var node = tree.GetRoot();
-                    DesignAnalyzers.Analyze(node);
-                }
-            }
+            handler = new WorkspaceHandler();
+            var sh = new SolutionHandler();
+            var ch = new CompilationHandler();
+            var mh = new MetricHandler();
+            handler.SetHandler(sh);
+            sh.SetHandler(ch);
+            ch.SetHandler(mh);
         }
-
-        public void AnalyzeTree(SyntaxTree tree)
-        {
-            var node = tree.GetRoot();
-            if (node.ChildNodes().Count() > 0)
-                AnalyzeNodes(node.ChildNodes().ToList());
-            DesignAnalyzers.Analyze(node);
-        }
-
-        public void AnalyzeNodes(List<SyntaxNode> nodeList)
-        {
-            foreach (var node in nodeList)
-            {
-                if (node.ChildNodes().Count() > 0)
-                    AnalyzeNodes(node.ChildNodes().ToList());
-                DesignAnalyzers.Analyze(node);
-            }
-        }*/
 
         private TreeViewItem GenerateTree(AnalyzerBase node)
         {
@@ -113,7 +88,7 @@ namespace Analyzer_Test
             da.Add(new AnalyzerLeaf(new CatchEmptyAnalyzer()));
             da.Add(new AnalyzerLeaf(new MakeMethodStaticAnalyzer()));
             root.Add(da);
-           // tree.Items.Add(GenerateTree(root));
+            // tree.Items.Add(GenerateTree(root));
             w.SetHandler(s);
             s.SetHandler(m);
             var result = w.Handle(si);
@@ -165,11 +140,34 @@ namespace Analyzer_Test
             Close();
         }
 
+        private void HideStartDialog()
+        {
+            StartDialog.Visibility = Visibility.Hidden;
+        }
+
 
 
         private void OpenSolutionButton_Click(object sender, RoutedEventArgs e)
         {
-
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "solution files (*.sln)|*.sln";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string path = openFileDialog.FileName;
+                HideStartDialog();
+                SetProjectHandlers();
+                var si = new Data.SolutionInfo();
+                si.solutionFilePath = path;
+                var result = handler.Handle(si);
+                var m = result.Metric.Value[0];
+                MetricTextBlock1.Text = $"Project name: {m.Item1}";
+                MetricTextBlock2.Text = $"Maintainability index: {m.Item2.MaintainabilityIndex}";
+                MetricTextBlock3.Text = $"Cyclomatic complexity: {m.Item2.CyclomaticComplexity}";
+                MetricTextBlock4.Text = $"Depth of inheritance: {m.Item2.DepthOfInheritance}";
+                MetricTextBlock5.Text = $"Executable lines: {m.Item2.ExecutableLines}";
+                MetricTextBlock6.Text = $"Source lines: {m.Item2.SourceLines}";
+                MetricTotalResult.Visibility = Visibility.Visible;
+            }
         }
     }
 }
