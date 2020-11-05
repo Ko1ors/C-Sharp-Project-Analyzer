@@ -159,9 +159,17 @@ namespace Analyzer_Test
             }*/
         }
 
-        private void CommonCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
-            e.CanExecute = true;
+            Close();
+        }
+
+
+
+        private void OpenSolutionButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

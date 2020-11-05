@@ -3,21 +3,75 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Analyzer_Test"
+        xmlns:local="clr-namespace:Analyzer_Test" xmlns:shell="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" BorderThickness="1" Width="800">
+    <shell:WindowChrome.WindowChrome>
+        <shell:WindowChrome
+
+            ResizeBorderThickness="5"
+
+            CaptionHeight="15"
+
+            CornerRadius="0,0,0,0"
+            
+            GlassFrameThickness="0">
+        </shell:WindowChrome>
+    </shell:WindowChrome.WindowChrome>
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="RoundButtonStyle">
+            <Setter Property="Background" Value="#FF61C6FF"/>
+            <Setter Property="FontFamily" Value="Arial Black"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Height" Value="auto"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Border x:Name="NavButton" CornerRadius="5" BorderBrush="#FF61C6FF" Background="#FF61C6FF" BorderThickness="1" />
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="NavButton" Property="BorderBrush" Value="Black"/>
+                                <Setter TargetName="NavButton" Property="Background" Value="#FF3697CD"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="NavButton" Property="Background" Value="#FF96D3F5"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid Background="#FF3A3A3A">
         <Grid.RowDefinitions>
-            <RowDefinition Height="28"/>
+            <RowDefinition Height="25"/>
             <RowDefinition Height="394*"/>
         </Grid.RowDefinitions>
-        <DockPanel Grid.Row="0" VerticalAlignment="Top" Grid.ColumnSpan="2"  >
+        <DockPanel Grid.Row="0"  Grid.ColumnSpan="2"  >
             <ToolBar Background="{x:Null}" HorizontalAlignment="Left" ToolBarTray.IsLocked="True" OverflowMode="Never">
-                <Button Content="Open solution" Background="{x:Null}" FontFamily="Arial Black" Foreground="White"/>
+                <ToolBar.Style>
+                    <Style TargetType="ToolBar">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ToolBar}">
+                                    <ToolBarPanel IsItemsHost="True" />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ToolBar.Style>
+                <Button Content="Open solution" Click="OpenSolutionButton_Click" Background="{x:Null}" FontFamily="Arial Black" WindowChrome.IsHitTestVisibleInChrome="True" Foreground="White"/>
                 <Separator Background="#FFC1DAD8" />
-                <Button Content="Settings" FontFamily="Arial Black" Foreground="White"/>
+                <Button Content="Settings" FontFamily="Arial Black" WindowChrome.IsHitTestVisibleInChrome="True" Foreground="White"/>
                 <Separator Background="{x:Null}" />
             </ToolBar>
+            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Button Content="✕"  Width="25" Height="25" Click="ExitButton_Click" Background="{x:Null}"  WindowChrome.IsHitTestVisibleInChrome="True" Foreground="White" BorderBrush="{x:Null}" />
+            </StackPanel>
         </DockPanel>
         <Grid Grid.Row="1" Background="Gainsboro" Grid.ColumnSpan="2">
             <Border Background="White" BorderThickness="1,1,1,1" CornerRadius="10" Margin="50,50,50,50" Padding="20" BorderBrush="Black">
@@ -27,6 +81,19 @@
                 <StackPanel>
                     <TextBlock Text="Welcome!" FontFamily="Arial Black" FontSize="20"/>
                     <TextBlock Text="Select the project solution to continue" FontFamily="Arial Black" FontSize="15" Margin="0,5,0,0"/>
+                    <DockPanel>
+                        <Button Content="Open solution" Click="OpenSolutionButton_Click" Margin="100,10,0,0" Style="{StaticResource RoundButtonStyle}" FontFamily="DejaVu Sans" FontSize="20"  Background="#FF61C6FF"  Foreground="White"  Width="168" Height="38"/>
+                        <StackPanel HorizontalAlignment="Right">
+                            <TextBlock Text="Recently opened solution"  FontFamily="Arial Black" FontSize="15"/>
+                            <ListView Margin="0,10,0,0" BorderBrush="#FF61C6FF">
+                                <ListViewItem Content="Solution 1"/>
+                                <ListViewItem Content="Solution 2"/>
+                                <ListViewItem Content="Solution 3"/>
+                                <ListViewItem Content="Solution 4"/>
+                                <ListViewItem Content="Solution 5"/>
+                            </ListView>
+                        </StackPanel>
+                    </DockPanel>
                 </StackPanel>
             </Border>
         </Grid>
