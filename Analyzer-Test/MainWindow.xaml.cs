@@ -1,6 +1,7 @@
 ﻿using Analyzer_Test.Analyzers;
 using Analyzer_Test.Analyzers.Design;
 using Analyzer_Test.Handlers.ProjectHandlers;
+using Analyzer_Test.UI.UserControls;
 using Microsoft.Win32;
 using System;
 using System.Linq;
@@ -15,9 +16,12 @@ namespace Analyzer_Test
     public partial class MainWindow : Window
     {
         ProjectHandler handler;
+        TotalMetricUC tmUC = new TotalMetricUC();
         public MainWindow()
         {
             InitializeComponent();
+            tmUC.Visibility = Visibility.Hidden;
+            MainGrid.Children.Add(tmUC);
             DriversTest();
         }
 
@@ -162,13 +166,13 @@ namespace Analyzer_Test
                 if (result.Status == "7") 
                 { 
                     var m = result.Metric.Value[0];
-                    MetricTextBlock1.Text = $"Project name: {m.Item1.Split('\\').Last().Split('.').First()}";
-                    MetricTextBlock2.Text = $"Maintainability index: {m.Item2.MaintainabilityIndex}";
-                    MetricTextBlock3.Text = $"Cyclomatic complexity: {m.Item2.CyclomaticComplexity}";
-                    MetricTextBlock4.Text = $"Depth of inheritance: {m.Item2.DepthOfInheritance}";
-                    MetricTextBlock5.Text = $"Executable lines: {m.Item2.ExecutableLines}";
-                    MetricTextBlock6.Text = $"Source lines: {m.Item2.SourceLines}";
-                    MetricTotalResult.Visibility = Visibility.Visible;
+                    tmUC.MetricTextBlock1.Text = $"Project name: {m.Item1.Split('\\').Last().Split('.').First()}";
+                    tmUC.MetricTextBlock2.Text = $"Maintainability index: {m.Item2.MaintainabilityIndex}";
+                    tmUC.MetricTextBlock3.Text = $"Cyclomatic complexity: {m.Item2.CyclomaticComplexity}";
+                    tmUC.MetricTextBlock4.Text = $"Depth of inheritance: {m.Item2.DepthOfInheritance}";
+                    tmUC.MetricTextBlock5.Text = $"Executable lines: {m.Item2.ExecutableLines}";
+                    tmUC.MetricTextBlock6.Text = $"Source lines: {m.Item2.SourceLines}";
+                    tmUC.Visibility = Visibility.Visible;
                 }
             }
         }
