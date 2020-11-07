@@ -257,6 +257,9 @@
     <Compile Include="UI\UserControls\DepthOfInheritanceUC.xaml.cs">
       <DependentUpon>DepthOfInheritanceUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\UserControls\MaintainabilityIndexMiniUC.xaml.cs">
+      <DependentUpon>MaintainabilityIndexMiniUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\UserControls\MaintainabilityIndexUC.xaml.cs">
       <DependentUpon>MaintainabilityIndexUC.xaml</DependentUpon>
     </Compile>
@@ -286,6 +289,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UI\UserControls\DepthOfInheritanceUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\UserControls\MaintainabilityIndexMiniUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

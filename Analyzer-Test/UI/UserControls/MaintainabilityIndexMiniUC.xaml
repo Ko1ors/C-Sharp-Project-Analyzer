@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="Analyzer_Test.UI.UserControls.MaintainabilityIndexMiniUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Analyzer_Test.UI.UserControls" 
+             xmlns:ui="clr-namespace:Analyzer_Test.UI"
+             xmlns:res="clr-namespace:Analyzer_Test.Properties"
+             mc:Ignorable="d" 
+             Height="70" Width="75">
+    <GroupBox  Background="White" BorderThickness="1,1,1,1" FontFamily="Arial Black" FontSize="13" Padding="5" BorderBrush="Black">
+        <Grid>
+            <ui:RadialProgressBar Grid.Row="1" x:Name="CircleProgressBar" Height="50" Width="50" Value="100"  IndicatorBrush="#FF5046A2"  ProgressBorderBrush="Gainsboro" BorderBrush="White" BackgroundBrush="#FFBDBDBD"/>
+        </Grid>
+    </GroupBox>
+</UserControl>
