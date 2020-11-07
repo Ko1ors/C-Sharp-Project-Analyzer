@@ -100,7 +100,7 @@
                     </DockPanel>
                 </StackPanel>
             </Border>
-            <ListView x:Name="listView" Visibility="Hidden"  Background="Gainsboro"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+            <ListView x:Name="listView" Visibility="Hidden"  Background="Gainsboro" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="4">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel />
@@ -108,7 +108,16 @@
                 </ListBox.ItemsPanel>
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
-                        <Setter Property="Padding" Value="10"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                    <Border x:Name="RootBorder" Padding="10">
+                                        <ContentPresenter/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <!--<Setter Property="Padding" Value="10"/>-->
                     </Style>
                 </ListView.ItemContainerStyle>
             </ListView>
