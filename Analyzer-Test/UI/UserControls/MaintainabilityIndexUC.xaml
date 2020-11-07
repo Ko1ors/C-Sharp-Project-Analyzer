@@ -4,10 +4,18 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Analyzer_Test.UI.UserControls" xmlns:ui="clr-namespace:Analyzer_Test.UI"
+             xmlns:res="clr-namespace:Analyzer_Test.Properties"
              mc:Ignorable="d" 
              Height="150" Width="190">
-    <GroupBox  Background="White" BorderThickness="1,1,1,1" Header="Maintainability index" FontFamily="Arial Black" FontSize="15" Padding="10" BorderBrush="Black">
+    <GroupBox  Background="White" BorderThickness="1,1,1,1" Header="Maintainability index" FontFamily="Arial Black" FontSize="15" Padding="5" BorderBrush="Black">
         <Grid>
+            <Button Style="{StaticResource CircleButtonStyle}" ToolTipService.ShowDuration="99999" Content="?" VerticalAlignment="Top" HorizontalAlignment="Right">
+                <Button.ToolTip >
+                    <ToolTip  MaxWidth="350">
+                        <TextBlock Text="{x:Static res:Resources.MaintainabilityIndexDescription}" TextWrapping="Wrap"/>
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
             <ui:RadialProgressBar Grid.Row="1" x:Name="CircleProgressBar" Height="90" Width="90" Value="100"  IndicatorBrush="#FF5046A2"  ProgressBorderBrush="Gainsboro" BorderBrush="White" BackgroundBrush="#FFBDBDBD"/>
         </Grid>
     </GroupBox>

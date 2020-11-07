@@ -4,6 +4,35 @@
              xmlns:local="clr-namespace:Analyzer_Test"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="Button" x:Key="CircleButtonStyle">
+            <Setter Property="Background" Value="#FF61C6FF"/>
+            <Setter Property="FontFamily" Value="Arial Black"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Width" Value="20"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Border x:Name="NavButton" CornerRadius="15" BorderBrush="#FF61C6FF" Background="#FF61C6FF" BorderThickness="1">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="30" Color="#FFC6EAFF"/>
+                                </Border.Effect>
+                            </Border>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="NavButton" Property="BorderBrush" Value="Black"/>
+                                <Setter TargetName="NavButton" Property="Background" Value="#FF3697CD"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="NavButton" Property="Background" Value="#FF3697CD"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>
