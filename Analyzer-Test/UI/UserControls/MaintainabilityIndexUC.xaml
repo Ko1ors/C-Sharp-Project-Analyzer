@@ -8,7 +8,7 @@
              Height="150" Width="400">
     <GroupBox x:Name="MetricTotalResult" Background="White" BorderThickness="1,1,1,1" Header="Maintainability index" FontFamily="Arial Black" Padding="10" BorderBrush="Black">
         <Grid>
-            <ui:RadialProgressBar Grid.Row="1" x:Name="CircleProgressBar" Height="90" Width="90" Value="10" IndicatorBrush="#FF5046A2"  HorizontalAlignment="Center" Margin="134,0,139,0"/>
+            <ui:RadialProgressBar Grid.Row="1" x:Name="CircleProgressBar" Height="90" Width="90" Value="100" IndicatorBrush="#FF5046A2"  HorizontalAlignment="Center" ProgressBorderBrush="#FF61C6FF"/>
         </Grid>
     </GroupBox>
 </UserControl>
