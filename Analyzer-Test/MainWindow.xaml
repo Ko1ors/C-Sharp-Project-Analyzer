@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Analyzer_Test" xmlns:shell="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+        xmlns:local="clr-namespace:Analyzer_Test" xmlns:shell="http://schemas.microsoft.com/netfx/2009/xaml/presentation" xmlns:usercontrols="clr-namespace:Analyzer_Test.UI.UserControls"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" BorderThickness="1" Width="800">
     <shell:WindowChrome.WindowChrome>
@@ -100,6 +100,18 @@
                     </DockPanel>
                 </StackPanel>
             </Border>
+            <ListView x:Name="listView" Visibility="Hidden"  Background="Gainsboro"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Padding" Value="10"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
         </Grid>
     </Grid>
 </Window>
