@@ -48,6 +48,11 @@ namespace Analyzer_Test.UI
         {
             InitializeComponent();
         }
+
+        public void SetTextValue(int value)
+        {
+            TextBlock.Text = value.ToString();
+        }
     }
     [ValueConversion(typeof(int), typeof(double))]
     public class ValueToAngle : IValueConverter

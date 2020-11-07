@@ -18,11 +18,13 @@ namespace Analyzer_Test
         ProjectHandler handler;
         TotalMetricUC tmUC = new TotalMetricUC();
         MaintainabilityIndexUC miUC = new MaintainabilityIndexUC();
+        DepthOfInheritanceUC doiUC = new DepthOfInheritanceUC();
         public MainWindow()
         {
             InitializeComponent();
             listView.Items.Add(tmUC);
             listView.Items.Add(miUC);
+            listView.Items.Add(doiUC);
             DriversTest();
         }
 
@@ -174,6 +176,7 @@ namespace Analyzer_Test
                     tmUC.MetricTextBlock5.Text = $"Executable lines: {m.Item2.ExecutableLines}";
                     tmUC.MetricTextBlock6.Text = $"Source lines: {m.Item2.SourceLines}";
                     miUC.SetValue(m.Item2.MaintainabilityIndex);
+                    doiUC.SetValue(m.Item2.DepthOfInheritance.GetValueOrDefault());
                     listView.Visibility = Visibility.Visible;
                 }
             }
