@@ -6,9 +6,9 @@
              xmlns:local="clr-namespace:Analyzer_Test.UI.UserControls" xmlns:ui="clr-namespace:Analyzer_Test.UI"
              mc:Ignorable="d" 
              Height="150" Width="400">
-    <GroupBox x:Name="MetricTotalResult" Background="White" BorderThickness="1,1,1,1" Header="Maintainability index" FontFamily="Arial Black" Padding="10" BorderBrush="Black">
+    <GroupBox  Background="White" BorderThickness="1,1,1,1" Header="Maintainability index" FontFamily="Arial Black" FontSize="15" Padding="10" BorderBrush="Black">
         <Grid>
-            <ui:RadialProgressBar Grid.Row="1" x:Name="CircleProgressBar" Height="90" Width="90" Value="100" IndicatorBrush="#FF5046A2"  HorizontalAlignment="Center" ProgressBorderBrush="#FF61C6FF"/>
+            <ui:RadialProgressBar Grid.Row="1" x:Name="CircleProgressBar" Height="90" Width="90" Value="100" HorizontalAlignment="Left" IndicatorBrush="#FF5046A2"  ProgressBorderBrush="#FF61C6FF"/>
         </Grid>
     </GroupBox>
 </UserControl>
