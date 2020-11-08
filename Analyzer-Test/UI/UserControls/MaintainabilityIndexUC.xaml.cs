@@ -38,6 +38,11 @@ namespace Analyzer_Test.UI.UserControls
                 CircleProgressBar.IndicatorBrush = new SolidColorBrush(Colors.Red);
         }
 
+        public void ClearClassList()
+        {
+            classListView.Items.Clear();
+        }
+
         public void AddClass(string name,int value)
         {
             var m = new MaintainabilityIndexMiniUC(name);

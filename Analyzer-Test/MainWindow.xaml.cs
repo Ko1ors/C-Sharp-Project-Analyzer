@@ -181,7 +181,7 @@ namespace Analyzer_Test
                     tmUC.MetricTextBlock5.Text = $"Executable lines: {m.Item2.ExecutableLines}";
                     tmUC.MetricTextBlock6.Text = $"Source lines: {m.Item2.SourceLines}";
                     miUC.SetValue(m.Item2.MaintainabilityIndex);
-
+                    miUC.ClearClassList();
                     foreach (var item in list)
                     {
                         miUC.AddClass(item.Item1, item.Item2);
