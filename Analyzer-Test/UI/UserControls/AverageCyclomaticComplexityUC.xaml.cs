@@ -24,5 +24,16 @@ namespace Analyzer_Test.UI.UserControls
         {
             InitializeComponent();
         }
+        public void ClearMethodList()
+        {
+            methodListView.Items.Clear();
+        }
+
+        public void AddMethod(string name, int value)
+        {
+            var m = new CircleProgressBarMiniUC(name);
+            m.SetValue(value);
+            methodListView.Items.Add(m);
+        }
     }
 }

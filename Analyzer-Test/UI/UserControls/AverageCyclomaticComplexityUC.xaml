@@ -20,7 +20,7 @@
                     <ColumnDefinition Width="10*"/>
                 </Grid.ColumnDefinitions>
                 <ui:RadialProgressBar x:Name="CircleProgressBar" Height="90" Width="90" Value="100"  IndicatorBrush="#FF5046A2"  ProgressBorderBrush="Gainsboro" BorderBrush="White" BackgroundBrush="#FFBDBDBD"/>
-                <ListView x:Name="classListView" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0" >
+                <ListView x:Name="methodListView" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0" >
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel />
