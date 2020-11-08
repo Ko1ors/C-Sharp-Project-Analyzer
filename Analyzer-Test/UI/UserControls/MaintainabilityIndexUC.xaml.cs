@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Analyzer_Test.UI.UserControls
 {
@@ -30,12 +19,7 @@ namespace Analyzer_Test.UI.UserControls
             if (value > 100)
                 throw new Exception();
             CircleProgressBar.Value = value;
-            if (value >= 20)
-                CircleProgressBar.IndicatorBrush = new SolidColorBrush(Colors.Green);
-            else if(value >= 10 && value < 20)
-                CircleProgressBar.IndicatorBrush = new SolidColorBrush(Colors.Yellow);
-            else if(value < 10)
-                CircleProgressBar.IndicatorBrush = new SolidColorBrush(Colors.Red);
+            CircleProgressBar.IndicatorBrush = new SolidColorBrush(GetColorByValue(value));
         }
 
         public void ClearClassList()
@@ -43,11 +27,23 @@ namespace Analyzer_Test.UI.UserControls
             classListView.Items.Clear();
         }
 
-        public void AddClass(string name,int value)
+        public void AddClass(string name, int value)
         {
             var m = new CircleProgressBarMiniUC(name);
             m.SetValue(value);
+            m.SetColor(GetColorByValue(value));
             classListView.Items.Add(m);
+        }
+
+        private Color GetColorByValue(int value)
+        {
+            if (value >= 20)
+                return Colors.Green;
+            else if (value >= 10 && value < 20)
+                return Colors.Yellow;
+            else if (value < 10)
+                return Colors.Red;
+            throw new Exception();
         }
     }
 }

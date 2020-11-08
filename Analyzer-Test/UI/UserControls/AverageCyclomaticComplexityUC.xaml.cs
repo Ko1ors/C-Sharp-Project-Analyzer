@@ -20,10 +20,38 @@ namespace Analyzer_Test.UI.UserControls
     /// </summary>
     public partial class AverageCyclomaticComplexityUC : UserControl
     {
+        private int min = 1;
+        private int greenMax = 10;
+        private int yellowMax = 20;
+
         public AverageCyclomaticComplexityUC()
         {
             InitializeComponent();
         }
+
+        public void SetValue(int value)
+        {
+            if (value < min)
+                throw new Exception();
+
+            if (value <= greenMax)
+            {
+                CircleProgressBar.Value = 100;
+                CircleProgressBar.IndicatorBrush = new SolidColorBrush(Colors.Green);
+            }
+            else if (value > greenMax && value <= yellowMax)
+            {
+                CircleProgressBar.Value = 50;
+                CircleProgressBar.IndicatorBrush = new SolidColorBrush(Colors.Yellow);
+            }
+            else if (value > yellowMax)
+            {
+                CircleProgressBar.Value = 10;
+                CircleProgressBar.IndicatorBrush = new SolidColorBrush(Colors.Red);
+            }
+            CircleProgressBar.SetTextValue(value);
+        }
+
         public void ClearMethodList()
         {
             methodListView.Items.Clear();
