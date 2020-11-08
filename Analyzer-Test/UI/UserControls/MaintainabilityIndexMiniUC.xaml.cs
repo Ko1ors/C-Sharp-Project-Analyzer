@@ -36,5 +36,18 @@ namespace Analyzer_Test.UI.UserControls
             InitializeComponent();
             ClassName = className;
         }
+
+        public void SetValue(int value)
+        {
+            if (value > 100)
+                throw new Exception();
+            CircleProgressBar.Value = value;
+            if (value >= 20)
+                CircleProgressBar.IndicatorBrush = new SolidColorBrush(Colors.Green);
+            else if (value >= 10 && value < 20)
+                CircleProgressBar.IndicatorBrush = new SolidColorBrush(Colors.Yellow);
+            else if (value < 10)
+                CircleProgressBar.IndicatorBrush = new SolidColorBrush(Colors.Red);
+        }
     }
 }

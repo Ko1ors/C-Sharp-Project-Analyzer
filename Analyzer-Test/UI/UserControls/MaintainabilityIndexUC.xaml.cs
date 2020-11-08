@@ -37,5 +37,12 @@ namespace Analyzer_Test.UI.UserControls
             else if(value < 10)
                 CircleProgressBar.IndicatorBrush = new SolidColorBrush(Colors.Red);
         }
+
+        public void AddClass(string name,int value)
+        {
+            var m = new MaintainabilityIndexMiniUC(name);
+            m.SetValue(value);
+            classListView.Items.Add(m);
+        }
     }
 }
