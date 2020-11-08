@@ -173,6 +173,9 @@ namespace Analyzer_Test
 
                     var list = GetMaintainabilityIndexByClasses(m.Item2);
                     list = list.OrderBy(t => t.Item2).Take(6).ToList();
+
+                    var listCC = GetCyclomaticComplexityByMethods(m.Item2);
+                    int avgCC = Convert.ToInt32(listCC.Average(e => e.Item2));
                    
                     tmUC.MetricTextBlock1.Text = $"Project name: {m.Item1.Split('\\').Last().Split('.').First()}";
                     tmUC.MetricTextBlock2.Text = $"Maintainability index: {m.Item2.MaintainabilityIndex}";
@@ -203,6 +206,18 @@ namespace Analyzer_Test
                classMainList.AddRange(GetMaintainabilityIndexByClasses(child));
             }
             return classMainList;
+        }
+
+        private List<(string, int)> GetCyclomaticComplexityByMethods(CodeAnalysisMetricData data)
+        {
+            var methodCCList = new List<(string, int)>();
+            if (data.Symbol.Kind == Microsoft.CodeAnalysis.SymbolKind.Method)
+                methodCCList.Add((data.Symbol.Name, data.CyclomaticComplexity));
+            foreach (var child in data.Children)
+            {
+                methodCCList.AddRange(GetCyclomaticComplexityByMethods(child));
+            }
+            return methodCCList;
         }
     }
 }
