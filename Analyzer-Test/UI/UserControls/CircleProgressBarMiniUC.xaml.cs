@@ -16,22 +16,22 @@ using System.Windows.Shapes;
 namespace Analyzer_Test.UI.UserControls
 {
     /// <summary>
-    /// Логика взаимодействия для MaintainabilityIndexMiniUC.xaml
+    /// Логика взаимодействия для CircleProgressBarMiniUC.xaml
     /// </summary>
-    public partial class MaintainabilityIndexMiniUC : UserControl
+    public partial class CircleProgressBarMiniUC : UserControl
     {
-        public static readonly DependencyProperty ClassNameProperty = DependencyProperty.Register("ClassName", typeof(String), typeof(MaintainabilityIndexMiniUC));
+        public static readonly DependencyProperty ClassNameProperty = DependencyProperty.Register("ClassName", typeof(String), typeof(CircleProgressBarMiniUC));
         public String ClassName
         {
             get { return this.GetValue(ClassNameProperty).ToString(); }
             set { this.SetValue(ClassNameProperty, value); }
         }
-        public MaintainabilityIndexMiniUC()
+        public CircleProgressBarMiniUC()
         {
             InitializeComponent();
         }
 
-        public MaintainabilityIndexMiniUC(String className)
+        public CircleProgressBarMiniUC(String className)
         {
             InitializeComponent();
             ClassName = className;

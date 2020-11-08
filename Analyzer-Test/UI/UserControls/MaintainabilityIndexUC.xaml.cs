@@ -45,7 +45,7 @@ namespace Analyzer_Test.UI.UserControls
 
         public void AddClass(string name,int value)
         {
-            var m = new MaintainabilityIndexMiniUC(name);
+            var m = new CircleProgressBarMiniUC(name);
             m.SetValue(value);
             classListView.Items.Add(m);
         }

@@ -26,13 +26,13 @@
                             <WrapPanel />
                         </ItemsPanelTemplate>
                     </ListBox.ItemsPanel>
-                    <local:MaintainabilityIndexMiniUC/>
-                    <local:MaintainabilityIndexMiniUC/>
-                    <local:MaintainabilityIndexMiniUC/>
-                    <local:MaintainabilityIndexMiniUC/>
-                    <local:MaintainabilityIndexMiniUC/>
-                    <local:MaintainabilityIndexMiniUC/>
-                    <local:MaintainabilityIndexMiniUC/>
+                    <local:CircleProgressBarMiniUC/>
+                    <local:CircleProgressBarMiniUC/>
+                    <local:CircleProgressBarMiniUC/>
+                    <local:CircleProgressBarMiniUC/>
+                    <local:CircleProgressBarMiniUC/>
+                    <local:CircleProgressBarMiniUC/>
+                    <local:CircleProgressBarMiniUC/>
                 </ListView>
                 <Button Grid.Column="2" Style="{StaticResource CircleButtonStyle}" ToolTipService.ShowDuration="99999" Content="?" VerticalAlignment="Top" HorizontalAlignment="Right">
                     <Button.ToolTip >
