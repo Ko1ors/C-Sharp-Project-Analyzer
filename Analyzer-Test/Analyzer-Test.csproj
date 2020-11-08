@@ -254,6 +254,9 @@
     <Compile Include="UI\RadialProgressBar.xaml.cs">
       <DependentUpon>RadialProgressBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\UserControls\AverageCyclomaticComplexityUC.xaml.cs">
+      <DependentUpon>AverageCyclomaticComplexityUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\UserControls\DepthOfInheritanceUC.xaml.cs">
       <DependentUpon>DepthOfInheritanceUC.xaml</DependentUpon>
     </Compile>
@@ -287,6 +290,10 @@
     <Page Include="UI\RadialProgressBar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\UserControls\AverageCyclomaticComplexityUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\UserControls\DepthOfInheritanceUC.xaml">
       <SubType>Designer</SubType>
