@@ -11,7 +11,7 @@
              Height="80"  MaxWidth="1000">
     <GroupBox  Background="White" BorderThickness="1,1,1,1"  FontFamily="Arial Black" FontSize="8" BorderBrush="Black">
         <GroupBox.Header>
-            <TextBlock Text="{Binding Path=ClassName, ElementName=_this, FallbackValue=Class name}"  TextWrapping="Wrap"/>
+            <TextBlock Text="{Binding Path=Title, ElementName=_this, FallbackValue=Title}"  TextWrapping="Wrap"/>
         </GroupBox.Header>
         <Grid >
             <ui:RadialProgressBar Grid.Row="1" x:Name="CircleProgressBar" Height="50" Width="50" Value="100"  IndicatorBrush="#FF5046A2"  ProgressBorderBrush="Gainsboro" BorderBrush="White" BackgroundBrush="#FFBDBDBD"/>

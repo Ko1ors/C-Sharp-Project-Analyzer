@@ -20,21 +20,21 @@ namespace Analyzer_Test.UI.UserControls
     /// </summary>
     public partial class CircleProgressBarMiniUC : UserControl
     {
-        public static readonly DependencyProperty ClassNameProperty = DependencyProperty.Register("ClassName", typeof(String), typeof(CircleProgressBarMiniUC));
-        public String ClassName
+        public static readonly DependencyProperty TitleProperty = DependencyProperty.Register("Title", typeof(String), typeof(CircleProgressBarMiniUC));
+        public String Title
         {
-            get { return this.GetValue(ClassNameProperty).ToString(); }
-            set { this.SetValue(ClassNameProperty, value); }
+            get { return this.GetValue(TitleProperty).ToString(); }
+            set { this.SetValue(TitleProperty, value); }
         }
         public CircleProgressBarMiniUC()
         {
             InitializeComponent();
         }
 
-        public CircleProgressBarMiniUC(String className)
+        public CircleProgressBarMiniUC(String name)
         {
             InitializeComponent();
-            ClassName = className;
+            Title = name;
         }
 
         public void SetValue(int value)
