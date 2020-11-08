@@ -21,12 +21,15 @@ namespace Analyzer_Test
         TotalMetricUC tmUC = new TotalMetricUC();
         MaintainabilityIndexUC miUC = new MaintainabilityIndexUC();
         DepthOfInheritanceUC doiUC = new DepthOfInheritanceUC();
+        AverageCyclomaticComplexityUC accUC = new AverageCyclomaticComplexityUC();
+
         public MainWindow()
         {
             InitializeComponent();
             listView.Items.Add(tmUC);
             listView.Items.Add(miUC);
             listView.Items.Add(doiUC);
+            listView.Items.Add(accUC);
         }
 
         private void SetProjectHandlers()
@@ -188,6 +191,13 @@ namespace Analyzer_Test
                     foreach (var item in list)
                     {
                         miUC.AddClass(item.Item1, item.Item2);
+                    }
+
+                    accUC.SetValue(avgCC);
+                    accUC.ClearMethodList();
+                    foreach(var item in listCC)
+                    {
+                        accUC.AddMethod(item.Item1, item.Item2);
                     }
 
                     doiUC.SetValue(m.Item2.DepthOfInheritance.GetValueOrDefault());
