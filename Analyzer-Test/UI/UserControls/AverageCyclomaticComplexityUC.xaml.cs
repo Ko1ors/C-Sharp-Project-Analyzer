@@ -33,22 +33,8 @@ namespace Analyzer_Test.UI.UserControls
         {
             if (value < min)
                 throw new Exception();
-
-            if (value <= greenMax)
-            {
-                CircleProgressBar.Value = 100;
-                CircleProgressBar.IndicatorBrush = new SolidColorBrush(Colors.Green);
-            }
-            else if (value > greenMax && value <= yellowMax)
-            {
-                CircleProgressBar.Value = 50;
-                CircleProgressBar.IndicatorBrush = new SolidColorBrush(Colors.Yellow);
-            }
-            else if (value > yellowMax)
-            {
-                CircleProgressBar.Value = 10;
-                CircleProgressBar.IndicatorBrush = new SolidColorBrush(Colors.Red);
-            }
+            CircleProgressBar.Value = ConvertValue(value);
+            CircleProgressBar.IndicatorBrush = new SolidColorBrush(GetColorByValue(value));
             CircleProgressBar.SetTextValue(value);
         }
 
@@ -60,8 +46,34 @@ namespace Analyzer_Test.UI.UserControls
         public void AddMethod(string name, int value)
         {
             var m = new CircleProgressBarMiniUC(name);
-            m.SetValue(value);
+            m.SetValue(ConvertValue(value));
+            m.SetColor(GetColorByValue(value));
+            m.SetTextValue(value);
             methodListView.Items.Add(m);
+        }
+
+        private int ConvertValue(int value)
+        {
+            if (value <= greenMax)
+                return 100;
+            else if (value > greenMax && value <= yellowMax)
+                return 50;
+            else if (value > yellowMax)
+                return 10;
+
+            throw new Exception();
+        }
+
+        private Color GetColorByValue(int value)
+        {
+            if (value <= greenMax)
+                return Colors.Green;
+            else if (value > greenMax && value <= yellowMax)
+                return Colors.Yellow;
+            else if (value > yellowMax)
+                return Colors.Red;
+
+            throw new Exception();
         }
     }
 }
