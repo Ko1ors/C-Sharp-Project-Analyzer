@@ -15,11 +15,11 @@
         <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="10*"/>
-                    <ColumnDefinition Width="40*"/>
+                    <ColumnDefinition Width="30*" MaxWidth="400"/>
                     <ColumnDefinition Width="10*"/>
                 </Grid.ColumnDefinitions>
                 <ui:RadialProgressBar x:Name="CircleProgressBar" Height="90" Width="90" Value="100"  IndicatorBrush="#FF5046A2"  ProgressBorderBrush="Gainsboro" BorderBrush="White" BackgroundBrush="#FFBDBDBD"/>
-                <ListView Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView x:Name="classListView" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0,0,10,0">
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel />
@@ -33,7 +33,7 @@
                     <local:MaintainabilityIndexMiniUC/>
                     <local:MaintainabilityIndexMiniUC/>
                 </ListView>
-            <Button Grid.Column="2" Style="{StaticResource CircleButtonStyle}" ToolTipService.ShowDuration="99999" Content="?" VerticalAlignment="Top" HorizontalAlignment="Right">
+                <Button Grid.Column="2" Style="{StaticResource CircleButtonStyle}" ToolTipService.ShowDuration="99999" Content="?" VerticalAlignment="Top" HorizontalAlignment="Right">
                 <Button.ToolTip >
                     <ToolTip  MaxWidth="350">
                         <TextBlock Text="{x:Static res:Resources.MaintainabilityIndexDescription}" TextWrapping="Wrap"/>
