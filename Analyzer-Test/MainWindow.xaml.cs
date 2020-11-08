@@ -2,8 +2,10 @@
 using Analyzer_Test.Analyzers.Design;
 using Analyzer_Test.Handlers.ProjectHandlers;
 using Analyzer_Test.UI.UserControls;
+using Microsoft.CodeAnalysis.CodeMetrics;
 using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,7 +27,6 @@ namespace Analyzer_Test
             listView.Items.Add(tmUC);
             listView.Items.Add(miUC);
             listView.Items.Add(doiUC);
-            DriversTest();
         }
 
         private void SetProjectHandlers()
@@ -169,6 +170,10 @@ namespace Analyzer_Test
                 if (result.Status == "7") 
                 { 
                     var m = result.Metric.Value[0];
+
+                    var list = GetMaintainabilityIndexByClasses(m.Item2);
+                    list = list.OrderBy(t => t.Item2).Take(6).ToList();
+                   
                     tmUC.MetricTextBlock1.Text = $"Project name: {m.Item1.Split('\\').Last().Split('.').First()}";
                     tmUC.MetricTextBlock2.Text = $"Maintainability index: {m.Item2.MaintainabilityIndex}";
                     tmUC.MetricTextBlock3.Text = $"Cyclomatic complexity: {m.Item2.CyclomaticComplexity}";
@@ -176,10 +181,28 @@ namespace Analyzer_Test
                     tmUC.MetricTextBlock5.Text = $"Executable lines: {m.Item2.ExecutableLines}";
                     tmUC.MetricTextBlock6.Text = $"Source lines: {m.Item2.SourceLines}";
                     miUC.SetValue(m.Item2.MaintainabilityIndex);
+
+                    foreach (var item in list)
+                    {
+                        miUC.AddClass(item.Item1, item.Item2);
+                    }
+
                     doiUC.SetValue(m.Item2.DepthOfInheritance.GetValueOrDefault());
                     listView.Visibility = Visibility.Visible;
                 }
             }
+        }  
+        
+        private List<(string, int)> GetMaintainabilityIndexByClasses(CodeAnalysisMetricData data)
+        {
+            var classMainList = new List<(string, int)>();
+            if (data.Symbol.Kind == Microsoft.CodeAnalysis.SymbolKind.NamedType)
+                classMainList.Add((data.Symbol.Name,data.MaintainabilityIndex));
+            foreach(var child in data.Children)
+            {
+               classMainList.AddRange(GetMaintainabilityIndexByClasses(child));
+            }
+            return classMainList;
         }
     }
 }
