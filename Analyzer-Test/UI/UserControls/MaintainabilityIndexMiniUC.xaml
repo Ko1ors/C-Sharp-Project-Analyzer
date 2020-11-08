@@ -8,9 +8,12 @@
              xmlns:res="clr-namespace:Analyzer_Test.Properties"
              x:Name="_this"
              mc:Ignorable="d" 
-             Height="80" Width="90">
-    <GroupBox  Background="White" BorderThickness="1,1,1,1" Header="{Binding Path=ClassName, ElementName=_this, FallbackValue=Class name }" FontFamily="Arial Black" FontSize="8" Padding="5" BorderBrush="Black">
-        <Grid>
+             Height="80"  MaxWidth="1000">
+    <GroupBox  Background="White" BorderThickness="1,1,1,1"  FontFamily="Arial Black" FontSize="8" BorderBrush="Black">
+        <GroupBox.Header>
+            <TextBlock Text="{Binding Path=ClassName, ElementName=_this, FallbackValue=Class name}"  TextWrapping="Wrap"/>
+        </GroupBox.Header>
+        <Grid >
             <ui:RadialProgressBar Grid.Row="1" x:Name="CircleProgressBar" Height="50" Width="50" Value="100"  IndicatorBrush="#FF5046A2"  ProgressBorderBrush="Gainsboro" BorderBrush="White" BackgroundBrush="#FFBDBDBD"/>
         </Grid>
     </GroupBox>
