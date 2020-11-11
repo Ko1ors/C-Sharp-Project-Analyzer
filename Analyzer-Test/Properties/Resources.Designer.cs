@@ -61,7 +61,7 @@ namespace Analyzer_Test.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Cyclomatic Complexity - Measures the structural complexity of the code. It is created by calculating the number of different code paths in the flow of the program. A program that has complex control flow requires more tests to achieve good code coverage and is less maintainable. At the method level, you should strive for a cyclomatic complexity of less than 10. Values between 10 and 20 should be rare, and values over 20 indicate substantially complex methods that should be on your watch list to refactor. Ge [остаток строки не уместился]&quot;;.
+        ///   Ищет локализованную строку, похожую на Measures the structural complexity of the code. It is created by calculating the number of different code paths in the flow of the program. A program that has complex control flow requires more tests to achieve good code coverage and is less maintainable. At the method level, you should strive for a cyclomatic complexity of less than 10. Values between 10 and 20 should be rare, and values over 20 indicate substantially complex methods that should be on your watch list to refactor. Generated code will often  [остаток строки не уместился]&quot;;.
         /// </summary>
         public static string CyclomaticComplexityDescription {
             get {
