@@ -61,6 +61,15 @@ namespace Analyzer_Test.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Cyclomatic Complexity - Measures the structural complexity of the code. It is created by calculating the number of different code paths in the flow of the program. A program that has complex control flow requires more tests to achieve good code coverage and is less maintainable. At the method level, you should strive for a cyclomatic complexity of less than 10. Values between 10 and 20 should be rare, and values over 20 indicate substantially complex methods that should be on your watch list to refactor. Ge [остаток строки не уместился]&quot;;.
+        /// </summary>
+        public static string CyclomaticComplexityDescription {
+            get {
+                return ResourceManager.GetString("CyclomaticComplexityDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на An index value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability. Color coded ratings can be used to quickly identify trouble spots in your code. A green rating is between 20 and 100 and indicates that the code has good maintainability. A yellow rating is between 10 and 19 and indicates that the code is moderately maintainable. A red rating is a rating between 0 and 9 and indicates low maintainability..
         /// </summary>
         public static string MaintainabilityIndexDescription {
