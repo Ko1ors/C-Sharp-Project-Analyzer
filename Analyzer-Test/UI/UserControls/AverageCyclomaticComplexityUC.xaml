@@ -37,7 +37,7 @@
                 <Button Grid.Column="2" Style="{StaticResource CircleButtonStyle}" ToolTipService.ShowDuration="99999" Content="?" VerticalAlignment="Top" HorizontalAlignment="Right">
                     <Button.ToolTip >
                         <ToolTip  MaxWidth="350">
-                            <TextBlock Text="{x:Static res:Resources.MaintainabilityIndexDescription}" TextWrapping="Wrap"/>
+                            <TextBlock Text="{x:Static res:Resources.CyclomaticComplexityDescription}" TextWrapping="Wrap"/>
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
