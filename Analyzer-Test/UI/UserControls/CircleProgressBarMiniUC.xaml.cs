@@ -29,11 +29,13 @@ namespace Analyzer_Test.UI.UserControls
         public CircleProgressBarMiniUC()
         {
             InitializeComponent();
+            CircleProgressBar.TextBlock.FontSize = 12;
         }
 
         public CircleProgressBarMiniUC(String name)
         {
             InitializeComponent();
+            CircleProgressBar.TextBlock.FontSize = 12;
             Title = name;
         }
 
