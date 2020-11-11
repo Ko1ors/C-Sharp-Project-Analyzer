@@ -179,6 +179,7 @@ namespace Analyzer_Test
 
                     var listCC = GetCyclomaticComplexityByMethods(m.Item2);
                     int avgCC = Convert.ToInt32(listCC.Average(e => e.Item2));
+                    listCC = listCC.Where(e => e.Item2 > 10).ToList();
                    
                     tmUC.MetricTextBlock1.Text = $"Project name: {m.Item1.Split('\\').Last().Split('.').First()}";
                     tmUC.MetricTextBlock2.Text = $"Maintainability index: {m.Item2.MaintainabilityIndex}";
