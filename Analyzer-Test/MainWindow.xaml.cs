@@ -24,6 +24,7 @@ namespace Analyzer_Test
         AverageCyclomaticComplexityUC accUC = new AverageCyclomaticComplexityUC();
         CyclomaticComplexityUC ccUC = new CyclomaticComplexityUC();
         ClassCouplingUC classCouplingUC = new ClassCouplingUC();
+        AverageClassCouplingUC avgClassCouplingUC = new AverageClassCouplingUC();
 
         public MainWindow()
         {
@@ -34,6 +35,7 @@ namespace Analyzer_Test
             listView.Items.Add(accUC);
             listView.Items.Add(ccUC);
             listView.Items.Add(classCouplingUC);
+            listView.Items.Add(avgClassCouplingUC);
         }
 
         private void SetProjectHandlers()
@@ -181,6 +183,10 @@ namespace Analyzer_Test
                     var list = GetMaintainabilityIndexByClasses(m.Item2);
                     list = list.OrderBy(t => t.Item2).Take(6).ToList();
 
+                    var listClassCoupling = GetClassCouplingByClasses(m.Item2);
+                    int avgClassCoupling = Convert.ToInt32(listClassCoupling.Average(e => e.Item2));
+                    listClassCoupling = listClassCoupling.Where(e => e.Item2 > 8).ToList();
+
                     var listCC = GetCyclomaticComplexityByMethods(m.Item2);
                     int avgCC = Convert.ToInt32(listCC.Average(e => e.Item2));
                     listCC = listCC.Where(e => e.Item2 > 10).ToList();
@@ -206,6 +212,13 @@ namespace Analyzer_Test
                         accUC.AddMethod(item.Item1, item.Item2);
                     }
 
+                    avgClassCouplingUC.SetValue(avgClassCoupling);
+                    avgClassCouplingUC.ClearClassList();
+                    foreach (var item in listClassCoupling)
+                    {
+                        avgClassCouplingUC.AddClass(item.Item1, item.Item2);
+                    }
+
                     ccUC.SetValue(m.Item2.CyclomaticComplexity);
                     classCouplingUC.SetValue(m.Item2.CoupledNamedTypes.Count);
                     doiUC.SetValue(m.Item2.DepthOfInheritance.GetValueOrDefault());
@@ -222,6 +235,18 @@ namespace Analyzer_Test
             foreach(var child in data.Children)
             {
                classMainList.AddRange(GetMaintainabilityIndexByClasses(child));
+            }
+            return classMainList;
+        }
+
+        private List<(string, int)> GetClassCouplingByClasses(CodeAnalysisMetricData data)
+        {
+            var classMainList = new List<(string, int)>();
+            if (data.Symbol.Kind == Microsoft.CodeAnalysis.SymbolKind.NamedType)
+                classMainList.Add((data.Symbol.Name, data.CoupledNamedTypes.Count));
+            foreach (var child in data.Children)
+            {
+                classMainList.AddRange(GetClassCouplingByClasses(child));
             }
             return classMainList;
         }
