@@ -61,6 +61,15 @@ namespace Analyzer_Test.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Measures the coupling to unique classes through parameters, local variables, return types, method calls, generic or template instantiations, base classes, interface implementations, fields defined on external types, and attribute decoration. Good software design dictates that types and methods should have high cohesion and low coupling. High coupling indicates a design that is difficult to reuse and maintain because of its many interdependencies on other types..
+        /// </summary>
+        public static string ClassCouplingDescription {
+            get {
+                return ResourceManager.GetString("ClassCouplingDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Measures the structural complexity of the code. It is created by calculating the number of different code paths in the flow of the program. A program that has complex control flow requires more tests to achieve good code coverage and is less maintainable. At the method level, you should strive for a cyclomatic complexity of less than 10. Values between 10 and 20 should be rare, and values over 20 indicate substantially complex methods that should be on your watch list to refactor. Generated code will often  [остаток строки не уместился]&quot;;.
         /// </summary>
         public static string CyclomaticComplexityDescription {
