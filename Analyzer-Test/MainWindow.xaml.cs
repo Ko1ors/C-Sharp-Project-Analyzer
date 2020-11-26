@@ -26,6 +26,8 @@ namespace Analyzer_Test
         ClassCouplingUC classCouplingUC = new ClassCouplingUC();
         AverageClassCouplingUC avgClassCouplingUC = new AverageClassCouplingUC();
         SourceCodeLinesUC sourceCodeLinesUC = new SourceCodeLinesUC();
+        ExecutableCodeLinesUC executableCodeLinesUC = new ExecutableCodeLinesUC();
+
 
         public MainWindow()
         {
@@ -38,6 +40,7 @@ namespace Analyzer_Test
             listView.Items.Add(classCouplingUC);
             listView.Items.Add(avgClassCouplingUC);
             listView.Items.Add(sourceCodeLinesUC);
+            listView.Items.Add(executableCodeLinesUC);
         }
 
         private void SetProjectHandlers()
@@ -224,6 +227,7 @@ namespace Analyzer_Test
                     ccUC.SetValue(m.Item2.CyclomaticComplexity);
                     classCouplingUC.SetValue(m.Item2.CoupledNamedTypes.Count);
                     sourceCodeLinesUC.SetValue((int)m.Item2.SourceLines);
+                    executableCodeLinesUC.SetValue((int)m.Item2.ExecutableLines);
                     doiUC.SetValue(m.Item2.DepthOfInheritance.GetValueOrDefault());
                     listView.Visibility = Visibility.Visible;
                 }

@@ -272,6 +272,9 @@
     <Compile Include="UI\UserControls\CircleProgressBarMiniUC.xaml.cs">
       <DependentUpon>CircleProgressBarMiniUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\UserControls\ExecutableCodeLinesUC.xaml.cs">
+      <DependentUpon>ExecutableCodeLinesUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\UserControls\MaintainabilityIndexUC.xaml.cs">
       <DependentUpon>MaintainabilityIndexUC.xaml</DependentUpon>
     </Compile>
@@ -324,6 +327,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\UserControls\CircleProgressBarMiniUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\UserControls\ExecutableCodeLinesUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
