@@ -16,7 +16,7 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto" MaxWidth="400"/>
+                    <ColumnDefinition Width="Auto" MinWidth="140" MaxWidth="400"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <ui:RadialProgressBar x:Name="CircleProgressBar" Height="90" Width="90" Value="100"  IndicatorBrush="#FF5046A2"  ProgressBorderBrush="Gainsboro" BorderBrush="White" BackgroundBrush="#FFBDBDBD"/>

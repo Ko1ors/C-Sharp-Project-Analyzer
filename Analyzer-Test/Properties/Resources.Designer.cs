@@ -70,6 +70,15 @@ namespace Analyzer_Test.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Indicates the number of different classes that inherit from one another, all the way back to the base class. Depth of Inheritance is similar to class coupling in that a change in a base class can affect any of its inherited classes. The higher this number, the deeper the inheritance and the higher the potential for base class modifications to result in a breaking change. For Depth of Inheritance, a low value is good and a high value is bad..
+        /// </summary>
+        public static string DepthOfInheritanceDescription {
+            get {
+                return ResourceManager.GetString("DepthOfInheritanceDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на An index value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability. Color coded ratings can be used to quickly identify trouble spots in your code. A green rating is between 20 and 100 and indicates that the code has good maintainability. A yellow rating is between 10 and 19 and indicates that the code is moderately maintainable. A red rating is a rating between 0 and 9 and indicates low maintainability..
         /// </summary>
         public static string MaintainabilityIndexDescription {
