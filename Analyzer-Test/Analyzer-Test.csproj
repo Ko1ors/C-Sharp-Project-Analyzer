@@ -257,6 +257,9 @@
     <Compile Include="UI\UserControls\AverageCyclomaticComplexityUC.xaml.cs">
       <DependentUpon>AverageCyclomaticComplexityUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\UserControls\CyclomaticComplexityUC.xaml.cs">
+      <DependentUpon>CyclomaticComplexityUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\UserControls\DepthOfInheritanceUC.xaml.cs">
       <DependentUpon>DepthOfInheritanceUC.xaml</DependentUpon>
     </Compile>
@@ -292,6 +295,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UI\UserControls\AverageCyclomaticComplexityUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\UserControls\CyclomaticComplexityUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

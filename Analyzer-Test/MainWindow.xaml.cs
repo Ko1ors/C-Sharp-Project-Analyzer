@@ -22,6 +22,7 @@ namespace Analyzer_Test
         MaintainabilityIndexUC miUC = new MaintainabilityIndexUC();
         DepthOfInheritanceUC doiUC = new DepthOfInheritanceUC();
         AverageCyclomaticComplexityUC accUC = new AverageCyclomaticComplexityUC();
+        CyclomaticComplexityUC ccUC = new CyclomaticComplexityUC();
 
         public MainWindow()
         {
@@ -30,6 +31,7 @@ namespace Analyzer_Test
             listView.Items.Add(miUC);
             listView.Items.Add(doiUC);
             listView.Items.Add(accUC);
+            listView.Items.Add(ccUC);
         }
 
         private void SetProjectHandlers()
@@ -202,6 +204,7 @@ namespace Analyzer_Test
                         accUC.AddMethod(item.Item1, item.Item2);
                     }
 
+                    ccUC.SetValue(m.Item2.CyclomaticComplexity);
                     doiUC.SetValue(m.Item2.DepthOfInheritance.GetValueOrDefault());
                     listView.Visibility = Visibility.Visible;
                 }
