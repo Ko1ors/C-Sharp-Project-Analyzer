@@ -185,8 +185,9 @@ namespace Analyzer_Test
                     tmUC.MetricTextBlock2.Text = $"Maintainability index: {m.Item2.MaintainabilityIndex}";
                     tmUC.MetricTextBlock3.Text = $"Cyclomatic complexity: {m.Item2.CyclomaticComplexity}";
                     tmUC.MetricTextBlock4.Text = $"Depth of inheritance: {m.Item2.DepthOfInheritance}";
-                    tmUC.MetricTextBlock5.Text = $"Executable lines: {m.Item2.ExecutableLines}";
-                    tmUC.MetricTextBlock6.Text = $"Source lines: {m.Item2.SourceLines}";
+                    tmUC.MetricTextBlock5.Text = $"Class coupling: {m.Item2.CoupledNamedTypes.Count}";
+                    tmUC.MetricTextBlock6.Text = $"Executable lines: {m.Item2.ExecutableLines}";
+                    tmUC.MetricTextBlock7.Text = $"Source lines: {m.Item2.SourceLines}";
                     miUC.SetValue(m.Item2.MaintainabilityIndex);
                     miUC.ClearClassList();
                     foreach (var item in list)
