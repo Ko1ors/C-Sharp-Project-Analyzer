@@ -88,11 +88,29 @@ namespace Analyzer_Test.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Indicates the approximate number of executable code lines or operations. This is a count of number of operations in executable code..
+        /// </summary>
+        public static string ExecutableCodeLinesDescription {
+            get {
+                return ResourceManager.GetString("ExecutableCodeLinesDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на An index value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability. Color coded ratings can be used to quickly identify trouble spots in your code. A green rating is between 20 and 100 and indicates that the code has good maintainability. A yellow rating is between 10 and 19 and indicates that the code is moderately maintainable. A red rating is a rating between 0 and 9 and indicates low maintainability..
         /// </summary>
         public static string MaintainabilityIndexDescription {
             get {
                 return ResourceManager.GetString("MaintainabilityIndexDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Indicates the exact number of source code lines that are present in your source file, including blank lines..
+        /// </summary>
+        public static string SourceCodeLinesDescription {
+            get {
+                return ResourceManager.GetString("SourceCodeLinesDescription", resourceCulture);
             }
         }
     }

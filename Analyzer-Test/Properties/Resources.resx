@@ -126,7 +126,13 @@
   <data name="DepthOfInheritanceDescription" xml:space="preserve">
     <value>Indicates the number of different classes that inherit from one another, all the way back to the base class. Depth of Inheritance is similar to class coupling in that a change in a base class can affect any of its inherited classes. The higher this number, the deeper the inheritance and the higher the potential for base class modifications to result in a breaking change. For Depth of Inheritance, a low value is good and a high value is bad.</value>
   </data>
+  <data name="ExecutableCodeLinesDescription" xml:space="preserve">
+    <value>Indicates the approximate number of executable code lines or operations. This is a count of number of operations in executable code.</value>
+  </data>
   <data name="MaintainabilityIndexDescription" xml:space="preserve">
     <value>An index value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability. Color coded ratings can be used to quickly identify trouble spots in your code. A green rating is between 20 and 100 and indicates that the code has good maintainability. A yellow rating is between 10 and 19 and indicates that the code is moderately maintainable. A red rating is a rating between 0 and 9 and indicates low maintainability.</value>
+  </data>
+  <data name="SourceCodeLinesDescription" xml:space="preserve">
+    <value>Indicates the exact number of source code lines that are present in your source file, including blank lines.</value>
   </data>
 </root>
