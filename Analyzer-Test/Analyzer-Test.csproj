@@ -353,7 +353,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Metrics.cs" />
-    <Compile Include="ProjectCreator.cs" />
+    <Compile Include="ProjectExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

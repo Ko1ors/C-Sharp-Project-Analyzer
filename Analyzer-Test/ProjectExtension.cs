@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Analyzer_Test
 {
-    public static class ProjectCreator
+    public static class ProjectExtension
     {
         private static bool isWorkspaceRegistered;
         public static MSBuildWorkspace CreateWorkspace()
