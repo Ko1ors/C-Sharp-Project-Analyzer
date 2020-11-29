@@ -14,5 +14,10 @@ namespace Analyzer_Test.Data
         {
            return solutionFilePath.Split('\\').Last().Split('.').First();
         }
+
+        public override string ToString()
+        {
+            return GetName();
+        }
     }
 }
