@@ -237,6 +237,7 @@ namespace Analyzer_Test
 
                 var solutions = new List<SolutionShortInfo>() { si };
                 solutions.AddRange(ProjectExtension.GetRecentSolutions());
+                solutions = solutions.GroupBy(e => e.solutionFilePath).Select(e => e.First()).ToList();
                 ProjectExtension.SaveRecentSolutions(solutions);
             }
         }
