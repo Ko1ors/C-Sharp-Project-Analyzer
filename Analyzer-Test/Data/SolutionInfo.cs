@@ -5,10 +5,10 @@ using System.Linq;
 
 namespace Analyzer_Test.Data
 {
-    public class SolutionInfo
+    public class SolutionInfo : SolutionShortInfo
     {
         public MSBuildWorkspace ws { get; private set; }
-        public string solutionFilePath { get; set; }
+        
         public Solution sln { get; private set; }
         public ImmutableArray<(string, Compilation)>? Compilation { get; private set; }
 
