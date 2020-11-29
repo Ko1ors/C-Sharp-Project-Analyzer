@@ -1,5 +1,6 @@
 ﻿using Analyzer_Test.Analyzers;
 using Analyzer_Test.Analyzers.Design;
+using Analyzer_Test.Data;
 using Analyzer_Test.Handlers.ProjectHandlers;
 using Analyzer_Test.UI.UserControls;
 using Microsoft.CodeAnalysis.CodeMetrics;
@@ -32,6 +33,7 @@ namespace Analyzer_Test
         public MainWindow()
         {
             InitializeComponent();
+
             listView.Items.Add(tmUC);
             listView.Items.Add(miUC);
             listView.Items.Add(doiUC);
@@ -41,7 +43,16 @@ namespace Analyzer_Test
             listView.Items.Add(avgClassCouplingUC);
             listView.Items.Add(sourceCodeLinesUC);
             listView.Items.Add(executableCodeLinesUC);
+            LoadRecentSolutions();
         }
+
+        private void LoadRecentSolutions()
+        {
+            var list = ProjectExtension.GetRecentSolutions();
+            solutionListView.Items.Clear();
+            solutionListView.ItemsSource = list;
+        }
+
 
         private void SetProjectHandlers()
         {
@@ -230,6 +241,10 @@ namespace Analyzer_Test
                     executableCodeLinesUC.SetValue((int)m.Item2.ExecutableLines);
                     doiUC.SetValue(m.Item2.DepthOfInheritance.GetValueOrDefault());
                     listView.Visibility = Visibility.Visible;
+
+                    var solutions = new List<SolutionShortInfo>() { si };
+                    solutions.AddRange(ProjectExtension.GetRecentSolutions());
+                    ProjectExtension.SaveRecentSolutions(solutions);
                 }
             }
         }  

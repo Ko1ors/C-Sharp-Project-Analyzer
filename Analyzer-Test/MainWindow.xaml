@@ -89,7 +89,7 @@
                         <Button Content="Open solution" Click="OpenSolutionButton_Click" Margin="100,10,0,0" Style="{StaticResource RoundButtonStyle}" FontFamily="DejaVu Sans" FontSize="20"  Background="#FF61C6FF"  Foreground="White"  Width="168" Height="38"/>
                         <StackPanel HorizontalAlignment="Right">
                             <TextBlock Text="Recently opened solution"  FontFamily="Arial Black" FontSize="15"/>
-                            <ListView Margin="0,10,0,0" BorderBrush="#FF61C6FF">
+                            <ListView x:Name="solutionListView" Margin="0,10,0,0" BorderBrush="#FF61C6FF">
                                 <ListViewItem Content="Solution 1"/>
                                 <ListViewItem Content="Solution 2"/>
                                 <ListViewItem Content="Solution 3"/>

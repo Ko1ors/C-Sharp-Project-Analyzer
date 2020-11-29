@@ -1,7 +1,11 @@
-﻿using Microsoft.Build.Locator;
+﻿using Analyzer_Test.Data;
+using Microsoft.Build.Locator;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CodeMetrics;
 using Microsoft.CodeAnalysis.MSBuild;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
@@ -13,6 +17,7 @@ namespace Analyzer_Test
     public static class ProjectExtension
     {
         private static bool isWorkspaceRegistered;
+        private static readonly string solutionsPath = AppDomain.CurrentDomain.BaseDirectory + "recentsolutions";
         public static MSBuildWorkspace CreateWorkspace()
         {
             if (!isWorkspaceRegistered)
@@ -65,6 +70,18 @@ namespace Analyzer_Test
                 return builder.ToImmutable();
             }
             return null;
+        }
+
+        public static List<SolutionShortInfo> GetRecentSolutions()
+        {
+            if (File.Exists(solutionsPath))
+                return JsonConvert.DeserializeObject<List<SolutionShortInfo>>(File.ReadAllText(solutionsPath));
+            return new List<SolutionShortInfo>();
+        }
+
+        public static void SaveRecentSolutions(List<SolutionShortInfo> solutions)
+        {
+            File.WriteAllText(solutionsPath, JsonConvert.SerializeObject(solutions));
         }
     }
 }

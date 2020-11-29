@@ -1,5 +1,6 @@
 ﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.MSBuild;
+using Newtonsoft.Json;
 using System.Collections.Immutable;
 using System.Linq;
 
@@ -7,11 +8,16 @@ namespace Analyzer_Test.Data
 {
     public class SolutionInfo : SolutionShortInfo
     {
+        [JsonIgnoreAttribute]
         public MSBuildWorkspace ws { get; private set; }
-        
+
+        [JsonIgnoreAttribute]
         public Solution sln { get; private set; }
+
+        [JsonIgnoreAttribute]
         public ImmutableArray<(string, Compilation)>? Compilation { get; private set; }
 
+        [JsonIgnoreAttribute]
         public string currentProject;
 
         public void SetWorkspace(MSBuildWorkspace ws)
