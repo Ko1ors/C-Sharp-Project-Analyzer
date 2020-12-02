@@ -16,8 +16,21 @@ namespace Analyzer_Test
 {
     public static class ProjectExtension
     {
+        /// <summary>
+        /// Variable that checks if workspace has already been registered
+        /// </summary>
         private static bool isWorkspaceRegistered;
+
+        /// <summary>
+        /// Path to file with recently opened solutions
+        /// </summary>
         private static readonly string solutionsPath = AppDomain.CurrentDomain.BaseDirectory + "recentsolutions";
+
+
+        /// <summary>
+        /// Create and return the MSBuild Workspace
+        /// </summary>
+        /// <returns>the MSBuildWorkspace object</returns>
         public static MSBuildWorkspace CreateWorkspace()
         {
             if (!isWorkspaceRegistered)
@@ -30,6 +43,13 @@ namespace Analyzer_Test
             return ws;
         }
 
+
+        /// <summary>
+        /// Create and return the Project Solution
+        /// </summary>
+        /// <returns>the Project Solution object</returns>
+        /// <param name="ws">Used to load MSBuild projects and solutions</param>
+        /// <param name="solutionFilePath">Used to specify path to solution file</param>
         public static Solution TryOpenSolution(MSBuildWorkspace ws, string solutionFilePath)
         {
             if (ws != null && solutionFilePath != null && File.Exists(solutionFilePath))
@@ -41,6 +61,11 @@ namespace Analyzer_Test
             return null;
         }
 
+        /// <summary>
+        /// Compute and return the Solution Metrics
+        /// </summary>
+        /// <returns>Immutable array of Solution Metrics</returns>
+        /// <param name="comList">Immutable array of Project Compilations</param>
         public static ImmutableArray<(string, CodeAnalysisMetricData)>? TryComputeSolutionMetric(ImmutableArray<(string, Compilation)>? comList)
         {
             if (comList?.Count() > 0)
@@ -56,6 +81,12 @@ namespace Analyzer_Test
             return null;
         }
 
+
+        /// <summary>
+        /// Compile the Solution
+        /// </summary>
+        /// <returns>Immutable array of Project Compilation</returns>
+        /// <param name="sln">Used to represents a set of projects and their source code</param>
         public static ImmutableArray<(string, Compilation)>? TryCompileSolution(Solution sln)
         {
             if (sln != null && sln.Projects.Count() > 0)
@@ -72,6 +103,11 @@ namespace Analyzer_Test
             return null;
         }
 
+
+        /// <summary>
+        /// Get a list of recently opened solutions and return it
+        /// </summary>
+        /// <returns>List of recently opened solutions</returns>
         public static List<SolutionShortInfo> GetRecentSolutions()
         {
             if (File.Exists(solutionsPath))
@@ -79,6 +115,10 @@ namespace Analyzer_Test
             return new List<SolutionShortInfo>();
         }
 
+        /// <summary>
+        /// Save a list of recently opened solutions
+        /// </summary>
+        /// <param name="solutions">Used to represents a list of short information about solutions</param>
         public static void SaveRecentSolutions(List<SolutionShortInfo> solutions)
         {
             File.WriteAllText(solutionsPath, JsonConvert.SerializeObject(solutions));
