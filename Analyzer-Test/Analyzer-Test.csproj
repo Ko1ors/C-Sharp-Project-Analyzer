@@ -250,6 +250,7 @@
     <Compile Include="Data\Results\AnalyzerResult.cs" />
     <Compile Include="Data\SolutionInfo.cs" />
     <Compile Include="Data\SolutionShortInfo.cs" />
+    <Compile Include="Driver.cs" />
     <Compile Include="Handlers\ProjectHandlers\CompilationHandler.cs" />
     <Compile Include="Handlers\ProjectHandlers\MetricHandler.cs" />
     <Compile Include="Handlers\ProjectHandlers\ProjectHandler.cs" />

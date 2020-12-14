@@ -75,40 +75,6 @@ namespace Analyzer_Test
             return item;
         }
 
-        private void DriversTest()
-        {
-            var si = new Data.SolutionInfo();
-            si.solutionFilePath = @"C:\Users\Ko1ors\source\repos\Ko1ors\PPZTicketsModel\PPZModel.sln";
-            var wh = new WorkspaceHandler();
-            var sh = new SolutionHandler();
-            var ch = new CompilationHandler();
-            var mh = new MetricHandler();
-            var a = new AnalyzerBase(new CatchEmptyAnalyzer());
-            wh.SetHandler(sh);
-            sh.SetHandler(ch);
-            ch.SetHandler(mh);
-            var result = wh.Handle(si);
-            Console.WriteLine($"Status: {result.Status}");
-            Console.WriteLine($"Message: {result.Message}");
-            foreach (var m in result.Metric)
-            {
-                Console.WriteLine($"Project name: {m.Item1}");
-                Console.WriteLine($"Maintainability index: {m.Item2.MaintainabilityIndex}");
-                Console.WriteLine($"Cyclomatic complexity: {m.Item2.CyclomaticComplexity}");
-                Console.WriteLine($"Depth of inheritance: {m.Item2.DepthOfInheritance}");
-                Console.WriteLine($"Executable lines: {m.Item2.ExecutableLines}");
-                Console.WriteLine($"Source lines: {m.Item2.SourceLines}");
-            }
-        }
-
-
-
-
-
-
-
-
-
         public void Create()
         {
             var si = new Data.SolutionInfo();
@@ -116,11 +82,11 @@ namespace Analyzer_Test
             var w = new WorkspaceHandler();
             var s = new SolutionHandler();
             var m = new MetricHandler();
-            AnalyzerBase root = new AnalyzerComposite(new AllAnalyzers());
-            AnalyzerBase da = new AnalyzerComposite(new DesignAnalyzers());
-            da.Add(new AnalyzerLeaf(new CatchEmptyAnalyzer()));
-            da.Add(new AnalyzerLeaf(new MakeMethodStaticAnalyzer()));
-            root.Add(da);
+            //AnalyzerBase root = new AnalyzerComposite(new AllAnalyzers());
+            //AnalyzerBase da = new AnalyzerComposite(new DesignAnalyzers());
+            //da.Add(new AnalyzerLeaf(new CatchEmptyAnalyzer()));
+            //da.Add(new AnalyzerLeaf(new MakeMethodStaticAnalyzer()));
+            // root.Add(da);
             // tree.Items.Add(GenerateTree(root));
             w.SetHandler(s);
             s.SetHandler(m);
