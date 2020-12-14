@@ -17,7 +17,7 @@ namespace Analyzer_Test
     public static class ProjectExtension
     {
         /// <summary>
-        /// Variable that checks if workspace has already been registered
+        /// Checks if workspace has already been registered
         /// </summary>
         private static bool isWorkspaceRegistered;
 

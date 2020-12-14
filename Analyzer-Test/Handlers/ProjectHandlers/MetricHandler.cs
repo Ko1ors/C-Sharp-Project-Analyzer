@@ -5,6 +5,11 @@ namespace Analyzer_Test.Handlers.ProjectHandlers
 {
     class MetricHandler : ProjectHandler
     {
+        /// <summary>
+        /// Process the request to compute solution metrics
+        /// </summary>
+        /// <param name="si">Used to presents the information about solution</param>
+        /// <returns>the handler result</returns>
         public override ProjectHandlerResult Handle(SolutionInfo si)
         {
             var m = ProjectExtension.TryComputeSolutionMetric(si?.Compilation);

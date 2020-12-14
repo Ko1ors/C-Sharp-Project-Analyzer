@@ -5,6 +5,11 @@ namespace Analyzer_Test.Handlers.ProjectHandlers
 {
     class SolutionHandler : ProjectHandler
     {
+        /// <summary>
+        /// Process the request to open a solution
+        /// </summary>
+        /// <param name="si">Used to presents the information about solution</param>
+        /// <returns>the handler result</returns>
         public override ProjectHandlerResult Handle(SolutionInfo si)
         {
             si?.SetSolution(ProjectExtension.TryOpenSolution(si.ws, si.solutionFilePath));

@@ -5,6 +5,11 @@ namespace Analyzer_Test.Handlers.ProjectHandlers
 {
     class WorkspaceHandler : ProjectHandler
     {
+        /// <summary>
+        /// Process the request to create a workspace
+        /// </summary>
+        /// <param name="si">Used to presents the information about solution</param>
+        /// <returns>the handler result</returns>
         public override ProjectHandlerResult Handle(SolutionInfo si)
         {
             si?.SetWorkspace(ProjectExtension.CreateWorkspace());
