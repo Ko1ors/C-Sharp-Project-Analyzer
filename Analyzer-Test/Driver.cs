@@ -1,10 +1,6 @@
-﻿using Analyzer_Test.Analyzers;
+﻿
 using Analyzer_Test.Handlers.ProjectHandlers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Analyzer_Test
 {

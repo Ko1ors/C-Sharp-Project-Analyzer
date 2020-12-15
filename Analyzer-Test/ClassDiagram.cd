@@ -10,8 +10,8 @@
   <Class Name="Analyzer_Test.MainWindow" BaseTypeListCollapsed="true">
     <Position X="32.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAiAAAAAAAAAAAAAAAAAAAAAAUAAAAAADAEAAAA=</HashCode>
-      <FileName>MainWindow.xaml.cs</FileName>
+      <HashCode>gAABoQgAAAAACAAAQAAQAAIAAAAAAekAAAQADAEAIgA=</HashCode>
+      <FileName>UI\MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
@@ -53,7 +53,7 @@
   <Class Name="Analyzer_Test.Data.SolutionInfo">
     <Position X="34.5" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAoEAAAAAQAAAAAAAAAAAAABCAAAAAAAAQAAIAAAAAA=</HashCode>
+      <HashCode>QAoAAAAAAQAAAAAAAAAAAAABCAAAAAAAAQAAIAAAAAA=</HashCode>
       <FileName>Data\SolutionInfo.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -147,7 +147,7 @@
   <Class Name="Analyzer_Test.Properties.Resources">
     <Position X="31" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+      <HashCode>AAIAAAAAAAQAAAAAAAABEAAAAQAAAABBAAAAIAAAEIA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="Analyzer_Test.Properties.Settings">
