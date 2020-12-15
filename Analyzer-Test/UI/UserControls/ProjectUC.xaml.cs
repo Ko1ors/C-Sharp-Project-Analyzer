@@ -14,15 +14,7 @@ namespace Analyzer_Test.UI.UserControls
     /// </summary>
     public partial class ProjectUC : UserControl
     {
-        DepthOfInheritanceUC doiUC = new DepthOfInheritanceUC();
-        AverageCyclomaticComplexityUC accUC = new AverageCyclomaticComplexityUC();
-        CyclomaticComplexityUC ccUC = new CyclomaticComplexityUC();
-        ClassCouplingUC classCouplingUC = new ClassCouplingUC();
-        AverageClassCouplingUC avgClassCouplingUC = new AverageClassCouplingUC();
-        SourceCodeLinesUC sourceCodeLinesUC = new SourceCodeLinesUC();
-        ExecutableCodeLinesUC executableCodeLinesUC = new ExecutableCodeLinesUC();
         private Dictionary<string, UserControl> ucDictionary = new Dictionary<string, UserControl>();
-
 
         public static readonly DependencyProperty ProjectNameProperty = DependencyProperty.Register("ProjectName", typeof(string), typeof(ProjectUC));
 
@@ -58,9 +50,9 @@ namespace Analyzer_Test.UI.UserControls
             listView.Items.Add(uc);
         }
 
-        public UserControl GetUC(string uc)
+        public T GetUC<T>() where T : UserControl
         {
-            return ucDictionary.FirstOrDefault(e => e.Key == uc).Value;
+            return (T)ucDictionary.FirstOrDefault(e => e.Key == typeof(T).Name).Value;
         }
 
         public void SetProject((string,CodeAnalysisMetricData) m)
@@ -88,13 +80,40 @@ namespace Analyzer_Test.UI.UserControls
             mp[6] = $"Source lines: {m.Item2.SourceLines}";
             SetTotalMetric(mp);
 
-            MaintainabilityIndexUC miUC = (MaintainabilityIndexUC) GetUC("MaintainabilityIndexUC");
+            MaintainabilityIndexUC miUC = GetUC<MaintainabilityIndexUC>();
             miUC.SetValue(m.Item2.MaintainabilityIndex);
             miUC.ClearClassList();
             foreach (var item in list)
             {
                 miUC.AddClass(item.Item1, item.Item2);
             }
+
+            AverageCyclomaticComplexityUC accUC = GetUC<AverageCyclomaticComplexityUC>();
+            accUC.SetValue(avgCC);
+            accUC.ClearMethodList();
+            foreach (var item in listCC)
+            {
+                accUC.AddMethod(item.Item1, item.Item2);
+            }
+
+            AverageClassCouplingUC avgClassCouplingUC = GetUC<AverageClassCouplingUC>();
+            avgClassCouplingUC.SetValue(avgClassCoupling);
+            avgClassCouplingUC.ClearClassList();
+
+            foreach (var item in listClassCoupling)
+            {
+                avgClassCouplingUC.AddClass(item.Item1, item.Item2);
+            }
+
+            GetUC<CyclomaticComplexityUC>().SetValue(m.Item2.CyclomaticComplexity);
+
+            GetUC<ClassCouplingUC>().SetValue(m.Item2.CoupledNamedTypes.Count);
+
+            GetUC<SourceCodeLinesUC>().SetValue((int)m.Item2.SourceLines);
+
+            GetUC<ExecutableCodeLinesUC>().SetValue((int)m.Item2.ExecutableLines);
+
+            GetUC<DepthOfInheritanceUC>().SetValue(m.Item2.DepthOfInheritance.GetValueOrDefault());   
         }
 
         private List<(string, int)> GetMaintainabilityIndexByClasses(CodeAnalysisMetricData data)
@@ -137,7 +156,7 @@ namespace Analyzer_Test.UI.UserControls
         {
             if (metricParams.Length != 7)
                 throw new Exception("Params was setted incorrect");
-            TotalMetricUC tmUC = (TotalMetricUC) GetUC("TotalMetricUC");
+            TotalMetricUC tmUC = GetUC<TotalMetricUC>();
             tmUC.MetricTextBlock1.Text = metricParams[0];
             tmUC.MetricTextBlock2.Text = metricParams[1];
             tmUC.MetricTextBlock3.Text = metricParams[2];

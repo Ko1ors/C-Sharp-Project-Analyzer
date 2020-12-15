@@ -3,6 +3,7 @@ using Analyzer_Test.Handlers.ProjectHandlers;
 using Analyzer_Test.UI.UserControls;
 using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,30 +15,10 @@ namespace Analyzer_Test
     /// </summary>
     public partial class MainWindow : Window
     {
-        TotalMetricUC tmUC = new TotalMetricUC();
-        MaintainabilityIndexUC miUC = new MaintainabilityIndexUC();
-        DepthOfInheritanceUC doiUC = new DepthOfInheritanceUC();
-        AverageCyclomaticComplexityUC accUC = new AverageCyclomaticComplexityUC();
-        CyclomaticComplexityUC ccUC = new CyclomaticComplexityUC();
-        ClassCouplingUC classCouplingUC = new ClassCouplingUC();
-        AverageClassCouplingUC avgClassCouplingUC = new AverageClassCouplingUC();
-        SourceCodeLinesUC sourceCodeLinesUC = new SourceCodeLinesUC();
-        ExecutableCodeLinesUC executableCodeLinesUC = new ExecutableCodeLinesUC();
-        ProjectUC projectUC = new ProjectUC();
 
         public MainWindow()
         {
             InitializeComponent();
-            /*
-            listView.Items.Add(tmUC);
-            listView.Items.Add(miUC);
-            listView.Items.Add(doiUC);
-            listView.Items.Add(accUC);
-            listView.Items.Add(ccUC);
-            listView.Items.Add(classCouplingUC);
-            listView.Items.Add(avgClassCouplingUC);
-            listView.Items.Add(sourceCodeLinesUC);
-            listView.Items.Add(executableCodeLinesUC);*/
             LoadRecentSolutions();
         }
 
@@ -61,10 +42,11 @@ namespace Analyzer_Test
         private void OpenSolution(String path)
         {
             HideStartDialog();
-            
             var handler = ProjectHandler.SetHandlers();
-            var si = new Data.SolutionInfo();
-            si.solutionFilePath = path;
+            var si = new SolutionInfo
+            {
+                solutionFilePath = path
+            };
             var result = handler.Handle(si);
             if (result.Status == "7")
             {
@@ -76,42 +58,10 @@ namespace Analyzer_Test
                 }
 
                 listView.Visibility = Visibility.Visible;
-
-
-
-
-
-
-
-
-                /*
-                
-
-                accUC.SetValue(avgCC);
-                accUC.ClearMethodList();
-                foreach (var item in listCC)
-                {
-                    accUC.AddMethod(item.Item1, item.Item2);
-                }
-
-                avgClassCouplingUC.SetValue(avgClassCoupling);
-                avgClassCouplingUC.ClearClassList();
-                foreach (var item in listClassCoupling)
-                {
-                    avgClassCouplingUC.AddClass(item.Item1, item.Item2);
-                }
-
-                ccUC.SetValue(m.Item2.CyclomaticComplexity);
-                classCouplingUC.SetValue(m.Item2.CoupledNamedTypes.Count);
-                sourceCodeLinesUC.SetValue((int)m.Item2.SourceLines);
-                executableCodeLinesUC.SetValue((int)m.Item2.ExecutableLines);
-                doiUC.SetValue(m.Item2.DepthOfInheritance.GetValueOrDefault());
-               
-
                 var solutions = new List<SolutionShortInfo>() { si };
                 solutions.AddRange(ProjectExtension.GetRecentSolutions());
                 solutions = solutions.GroupBy(e => e.solutionFilePath).Select(e => e.First()).ToList();
-                ProjectExtension.SaveRecentSolutions(solutions);*/
+                ProjectExtension.SaveRecentSolutions(solutions);
             }
         }
 
@@ -125,7 +75,6 @@ namespace Analyzer_Test
                 OpenSolution(path);   
             }
         }  
-        
         
 
         private void solutionListView_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
