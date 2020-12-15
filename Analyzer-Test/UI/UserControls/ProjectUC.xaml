@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Analyzer_Test.UI.UserControls"
              mc:Ignorable="d" 
-             Height="3000" MaxWidth="10000" MaxHeight="10000">
+             MaxWidth="10000" MaxHeight="10000">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
