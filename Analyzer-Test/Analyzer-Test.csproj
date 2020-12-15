@@ -284,6 +284,9 @@
     <Compile Include="UI\UserControls\MaintainabilityIndexUC.xaml.cs">
       <DependentUpon>MaintainabilityIndexUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\UserControls\ProjectUC.xaml.cs">
+      <DependentUpon>ProjectUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\UserControls\SourceCodeLinesUC.xaml.cs">
       <DependentUpon>SourceCodeLinesUC.xaml</DependentUpon>
     </Compile>
@@ -341,6 +344,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\UserControls\MaintainabilityIndexUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\UserControls\ProjectUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

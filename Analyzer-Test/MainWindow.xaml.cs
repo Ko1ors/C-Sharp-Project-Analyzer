@@ -25,12 +25,14 @@ namespace Analyzer_Test
         AverageClassCouplingUC avgClassCouplingUC = new AverageClassCouplingUC();
         SourceCodeLinesUC sourceCodeLinesUC = new SourceCodeLinesUC();
         ExecutableCodeLinesUC executableCodeLinesUC = new ExecutableCodeLinesUC();
-
+        ProjectUC projectUC = new ProjectUC();
 
         public MainWindow()
         {
             InitializeComponent();
-
+            listView.Items.Add(projectUC);
+            listView.Visibility = Visibility.Visible;
+            /*
             listView.Items.Add(tmUC);
             listView.Items.Add(miUC);
             listView.Items.Add(doiUC);
@@ -39,7 +41,7 @@ namespace Analyzer_Test
             listView.Items.Add(classCouplingUC);
             listView.Items.Add(avgClassCouplingUC);
             listView.Items.Add(sourceCodeLinesUC);
-            listView.Items.Add(executableCodeLinesUC);
+            listView.Items.Add(executableCodeLinesUC);*/
             LoadRecentSolutions();
         }
 
@@ -63,6 +65,8 @@ namespace Analyzer_Test
         private void OpenSolution(String path)
         {
             HideStartDialog();
+            
+            /*
             var handler = ProjectHandler.SetHandlers();
             var si = new Data.SolutionInfo();
             si.solutionFilePath = path;
@@ -121,7 +125,7 @@ namespace Analyzer_Test
                 solutions.AddRange(ProjectExtension.GetRecentSolutions());
                 solutions = solutions.GroupBy(e => e.solutionFilePath).Select(e => e.First()).ToList();
                 ProjectExtension.SaveRecentSolutions(solutions);
-            }
+            }*/
         }
 
         private void OpenSolutionButton_Click(object sender, RoutedEventArgs e)
