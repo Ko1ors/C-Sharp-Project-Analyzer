@@ -30,6 +30,21 @@ namespace Analyzer_Test.UI.UserControls
         AverageClassCouplingUC avgClassCouplingUC = new AverageClassCouplingUC();
         SourceCodeLinesUC sourceCodeLinesUC = new SourceCodeLinesUC();
         ExecutableCodeLinesUC executableCodeLinesUC = new ExecutableCodeLinesUC();
+
+        public static readonly DependencyProperty ProjectNameProperty = DependencyProperty.Register("ProjectName", typeof(string), typeof(ProjectUC));
+
+        public string ProjectName
+        {
+            get
+            {
+                return (string)this.GetValue(ProjectNameProperty);
+            }
+            set
+            {
+                this.SetValue(ProjectNameProperty, value.ToUpper());
+            }
+        }
+
         public ProjectUC()
         {
             InitializeComponent();

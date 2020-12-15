@@ -85,6 +85,9 @@ namespace Analyzer_Test
                     var listCC = GetCyclomaticComplexityByMethods(m.Item2);
                     int avgCC = Convert.ToInt32(listCC.Average(e => e.Item2));
                     listCC = listCC.Where(e => e.Item2 > 10).ToList();
+
+                    projectUC.ProjectName = m.Item1.Split('\\').Last().Split('.').First();
+
                     string[] mp = new string[7];
                     mp[0] = $"Project name: {m.Item1.Split('\\').Last().Split('.').First()}";
                     mp[1] = $"Maintainability index: {m.Item2.MaintainabilityIndex}";
@@ -94,7 +97,9 @@ namespace Analyzer_Test
                     mp[5] = $"Executable lines: {m.Item2.ExecutableLines}";
                     mp[6] = $"Source lines: {m.Item2.SourceLines}";
                     projectUC.SetTotalMetric(mp);
+                    
                 }
+
                 listView.Visibility = Visibility.Visible;
 
 

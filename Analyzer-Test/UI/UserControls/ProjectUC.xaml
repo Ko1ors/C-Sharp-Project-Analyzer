@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Analyzer_Test.UI.UserControls"
              mc:Ignorable="d" 
+             x:Name="projectUC"
              MaxWidth="10000" MaxHeight="10000">
     <Grid>
         <Grid.RowDefinitions>
@@ -13,7 +14,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <GroupBox Header="PROJECT NAME" BorderThickness="1" BorderBrush="Gainsboro" FontFamily="Cyberpunk" FontSize="15">
+        <GroupBox Header="{Binding ProjectName,ElementName=projectUC, FallbackValue= PROJECT NAME, Mode=TwoWay}" BorderThickness="1" BorderBrush="Gainsboro" FontFamily="Cyberpunk" FontSize="15">
             <ListView x:Name="listView" MaxHeight="2000" Background="Gainsboro" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="4">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
