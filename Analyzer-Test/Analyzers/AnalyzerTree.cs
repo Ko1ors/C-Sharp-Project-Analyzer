@@ -10,7 +10,7 @@ namespace Analyzer_Test.Analyzers
             var item = new TreeViewItem() { Header = node.GetName() };
             foreach (var child in node.GetChildren() ?? Enumerable.Empty<AnalyzerBase>())
             {
-                item.Items.Add(GenerateTree(child));
+                item.Items.Add(Generate(child));
             }
             return item;
         }
