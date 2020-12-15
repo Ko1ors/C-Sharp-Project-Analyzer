@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-
+ 
 namespace Analyzer_Test
 {
     /// <summary>
@@ -16,7 +16,6 @@ namespace Analyzer_Test
     /// </summary>
     public partial class MainWindow : Window
     {
-        ProjectHandler handler; 
         TotalMetricUC tmUC = new TotalMetricUC();
         MaintainabilityIndexUC miUC = new MaintainabilityIndexUC();
         DepthOfInheritanceUC doiUC = new DepthOfInheritanceUC();
@@ -51,18 +50,6 @@ namespace Analyzer_Test
             solutionListView.ItemsSource = list;
         }
 
-
-        private void SetProjectHandlers()
-        {
-            handler = new WorkspaceHandler();
-            var sh = new SolutionHandler();
-            var ch = new CompilationHandler();
-            var mh = new MetricHandler();
-            handler.SetHandler(sh);
-            sh.SetHandler(ch);
-            ch.SetHandler(mh);
-        }
-
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -76,7 +63,7 @@ namespace Analyzer_Test
         private void OpenSolution(String path)
         {
             HideStartDialog();
-            SetProjectHandlers();
+            var handler = ProjectHandler.SetHandlers();
             var si = new Data.SolutionInfo();
             si.solutionFilePath = path;
             var result = handler.Handle(si);

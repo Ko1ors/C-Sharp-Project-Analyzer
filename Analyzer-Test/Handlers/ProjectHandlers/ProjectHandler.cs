@@ -25,5 +25,18 @@ namespace Analyzer_Test.Handlers.ProjectHandlers
         /// <param name="si">Used to presents the information about solution</param>
         /// <returns>the handler result</returns>
         public abstract ProjectHandlerResult Handle(SolutionInfo si);
+
+
+        public static ProjectHandler SetHandlers()
+        {
+            var handler = new WorkspaceHandler();
+            var sh = new SolutionHandler();
+            var ch = new CompilationHandler();
+            var mh = new MetricHandler();
+            handler.SetHandler(sh);
+            sh.SetHandler(ch);
+            ch.SetHandler(mh);
+            return handler;
+        }
     }
 }
