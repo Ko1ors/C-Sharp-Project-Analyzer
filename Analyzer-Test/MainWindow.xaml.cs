@@ -30,8 +30,6 @@ namespace Analyzer_Test
         public MainWindow()
         {
             InitializeComponent();
-            listView.Items.Add(projectUC);
-            listView.Visibility = Visibility.Visible;
             /*
             listView.Items.Add(tmUC);
             listView.Items.Add(miUC);
@@ -66,33 +64,47 @@ namespace Analyzer_Test
         {
             HideStartDialog();
             
-            /*
             var handler = ProjectHandler.SetHandlers();
             var si = new Data.SolutionInfo();
             si.solutionFilePath = path;
             var result = handler.Handle(si);
             if (result.Status == "7")
             {
-                var m = result.Metric.Value[0];
+                foreach(var m in result.Metric)
+                {
+                    var projectUC = new ProjectUC();
+                    listView.Items.Add(projectUC);
 
-                var list = GetMaintainabilityIndexByClasses(m.Item2);
-                list = list.OrderBy(t => t.Item2).Take(6).ToList();
+                    var list = GetMaintainabilityIndexByClasses(m.Item2);
+                    list = list.OrderBy(t => t.Item2).Take(6).ToList();
 
-                var listClassCoupling = GetClassCouplingByClasses(m.Item2);
-                int avgClassCoupling = Convert.ToInt32(listClassCoupling.Average(e => e.Item2));
-                listClassCoupling = listClassCoupling.Where(e => e.Item2 > 8).ToList();
+                    var listClassCoupling = GetClassCouplingByClasses(m.Item2);
+                    int avgClassCoupling = Convert.ToInt32(listClassCoupling.Average(e => e.Item2));
+                    listClassCoupling = listClassCoupling.Where(e => e.Item2 > 8).ToList();
 
-                var listCC = GetCyclomaticComplexityByMethods(m.Item2);
-                int avgCC = Convert.ToInt32(listCC.Average(e => e.Item2));
-                listCC = listCC.Where(e => e.Item2 > 10).ToList();
+                    var listCC = GetCyclomaticComplexityByMethods(m.Item2);
+                    int avgCC = Convert.ToInt32(listCC.Average(e => e.Item2));
+                    listCC = listCC.Where(e => e.Item2 > 10).ToList();
+                    string[] mp = new string[7];
+                    mp[0] = $"Project name: {m.Item1.Split('\\').Last().Split('.').First()}";
+                    mp[1] = $"Maintainability index: {m.Item2.MaintainabilityIndex}";
+                    mp[2] = $"Cyclomatic complexity: {m.Item2.CyclomaticComplexity}";
+                    mp[3] = $"Depth of inheritance: {m.Item2.DepthOfInheritance}";
+                    mp[4] = $"Class coupling: {m.Item2.CoupledNamedTypes.Count}";
+                    mp[5] = $"Executable lines: {m.Item2.ExecutableLines}";
+                    mp[6] = $"Source lines: {m.Item2.SourceLines}";
+                    projectUC.SetTotalMetric(mp);
+                }
+                listView.Visibility = Visibility.Visible;
 
-                tmUC.MetricTextBlock1.Text = $"Project name: {m.Item1.Split('\\').Last().Split('.').First()}";
-                tmUC.MetricTextBlock2.Text = $"Maintainability index: {m.Item2.MaintainabilityIndex}";
-                tmUC.MetricTextBlock3.Text = $"Cyclomatic complexity: {m.Item2.CyclomaticComplexity}";
-                tmUC.MetricTextBlock4.Text = $"Depth of inheritance: {m.Item2.DepthOfInheritance}";
-                tmUC.MetricTextBlock5.Text = $"Class coupling: {m.Item2.CoupledNamedTypes.Count}";
-                tmUC.MetricTextBlock6.Text = $"Executable lines: {m.Item2.ExecutableLines}";
-                tmUC.MetricTextBlock7.Text = $"Source lines: {m.Item2.SourceLines}";
+
+
+
+
+
+
+
+                /*
                 miUC.SetValue(m.Item2.MaintainabilityIndex);
                 miUC.ClearClassList();
                 foreach (var item in list)
@@ -119,13 +131,13 @@ namespace Analyzer_Test
                 sourceCodeLinesUC.SetValue((int)m.Item2.SourceLines);
                 executableCodeLinesUC.SetValue((int)m.Item2.ExecutableLines);
                 doiUC.SetValue(m.Item2.DepthOfInheritance.GetValueOrDefault());
-                listView.Visibility = Visibility.Visible;
+               
 
                 var solutions = new List<SolutionShortInfo>() { si };
                 solutions.AddRange(ProjectExtension.GetRecentSolutions());
                 solutions = solutions.GroupBy(e => e.solutionFilePath).Select(e => e.First()).ToList();
-                ProjectExtension.SaveRecentSolutions(solutions);
-            }*/
+                ProjectExtension.SaveRecentSolutions(solutions);*/
+            }
         }
 
         private void OpenSolutionButton_Click(object sender, RoutedEventArgs e)

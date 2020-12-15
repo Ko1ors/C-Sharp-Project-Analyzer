@@ -24,5 +24,6 @@ namespace Analyzer_Test.UI.UserControls
         {
             InitializeComponent();
         }
+
     }
 }

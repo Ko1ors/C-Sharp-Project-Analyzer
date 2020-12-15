@@ -43,5 +43,18 @@ namespace Analyzer_Test.UI.UserControls
             listView.Items.Add(sourceCodeLinesUC);
             listView.Items.Add(executableCodeLinesUC);
         }
+
+        public void SetTotalMetric(string[] metricParams)
+        {
+            if (metricParams.Length != 7)
+                throw new Exception("Params was setted incorrect");
+            tmUC.MetricTextBlock1.Text = metricParams[0];
+            tmUC.MetricTextBlock2.Text = metricParams[1];
+            tmUC.MetricTextBlock3.Text = metricParams[2];
+            tmUC.MetricTextBlock4.Text = metricParams[3];
+            tmUC.MetricTextBlock5.Text = metricParams[4];
+            tmUC.MetricTextBlock6.Text = metricParams[5];
+            tmUC.MetricTextBlock7.Text = metricParams[6];
+        }
     }
 }
