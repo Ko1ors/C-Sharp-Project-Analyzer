@@ -1,22 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EF65F740-7388-4981-802C-B815F67DC416}</ProjectGuid>
+    <TargetFramework>net5.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
     <LangVersion>8.0</LangVersion>
     <RootNamespace>Analyzer_Test</RootNamespace>
-    <AssemblyName>Analyzer-Test</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <WarningLevel>4</WarningLevel>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Deterministic>true</Deterministic>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -32,47 +19,18 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWPF>true</UseWPF>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\x64\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
     <LangVersion>8.0</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
     <LangVersion>8.0</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Build.15.1.0.0.Fakes" />
@@ -81,186 +39,15 @@
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="Microsoft.Windows.Design.Extensibility, Version=4.3.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Configuration" />
-    <Reference Include="System.Data" />
     <Reference Include="System.IO.Compression" />
-    <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xaml">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="WindowsBase" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Compile Include="Analyzers\AnalysisExtension.cs" />
-    <Compile Include="Analyzers\AnalyzerBase.cs" />
-    <Compile Include="Analyzers\AnalyzerComposite.cs" />
-    <Compile Include="Analyzers\AnalyzerLeaf.cs" />
-    <Compile Include="Analyzers\AnalyzerTree.cs" />
-    <Compile Include="Analyzers\Group Analyzers\AbstractGroupAnalyzer.cs" />
-    <Compile Include="Analyzers\Single Analyzers\AbstractAnalyzer.cs" />
-    <Compile Include="Analyzers\Single Analyzers\Refactoring\AddBracesToSwitchSectionsAnalyzer.cs" />
-    <Compile Include="Analyzers\Single Analyzers\Perfomance\EmptyFinalizerAnalyzer.cs" />
-    <Compile Include="Analyzers\Single Analyzers\Reliability\UseConfigureAwaitFalseAnalyzer.cs" />
-    <Compile Include="Analyzers\Single Analyzers\Usage\AbstractClassShouldNotHavePublicCtorsAnalyzer.cs" />
-    <Compile Include="Data\Results\AnalyzerResult.cs" />
-    <Compile Include="Data\SolutionInfo.cs" />
-    <Compile Include="Data\SolutionShortInfo.cs" />
-    <Compile Include="Driver.cs" />
-    <Compile Include="Handlers\ProjectHandlers\CompilationHandler.cs" />
-    <Compile Include="Handlers\ProjectHandlers\MetricHandler.cs" />
-    <Compile Include="Handlers\ProjectHandlers\ProjectHandler.cs" />
-    <Compile Include="Data\Results\ProjectHandlerResult.cs" />
-    <Compile Include="Data\Results\Result.cs" />
-    <Compile Include="UI\RadialProgressBar.xaml.cs">
-      <DependentUpon>RadialProgressBar.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\UserControls\AverageClassCouplingUC.xaml.cs">
-      <DependentUpon>AverageClassCouplingUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\UserControls\AverageCyclomaticComplexityUC.xaml.cs">
-      <DependentUpon>AverageCyclomaticComplexityUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\UserControls\ClassCouplingUC.xaml.cs">
-      <DependentUpon>ClassCouplingUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\UserControls\CyclomaticComplexityUC.xaml.cs">
-      <DependentUpon>CyclomaticComplexityUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\UserControls\DepthOfInheritanceUC.xaml.cs">
-      <DependentUpon>DepthOfInheritanceUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\UserControls\CircleProgressBarMiniUC.xaml.cs">
-      <DependentUpon>CircleProgressBarMiniUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\UserControls\ExecutableCodeLinesUC.xaml.cs">
-      <DependentUpon>ExecutableCodeLinesUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\UserControls\MaintainabilityIndexUC.xaml.cs">
-      <DependentUpon>MaintainabilityIndexUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\UserControls\ProjectUC.xaml.cs">
-      <DependentUpon>ProjectUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\UserControls\SourceCodeLinesUC.xaml.cs">
-      <DependentUpon>SourceCodeLinesUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\UserControls\TotalMetricUC.xaml.cs">
-      <DependentUpon>TotalMetricUC.xaml</DependentUpon>
-    </Compile>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="Analyzers\Group Analyzers\AllAnalyzer.cs" />
-    <Compile Include="Analyzers\Single Analyzers\Design\CatchEmptyAnalyzer.cs" />
-    <Compile Include="Analyzers\Group Analyzers\DesignAnalyzer.cs" />
-    <Compile Include="Analyzers\Single Analyzers\Design\MakeMethodStaticAnalyzer.cs" />
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Handlers\ProjectHandlers\SolutionHandler.cs" />
-    <Compile Include="Handlers\ProjectHandlers\WorkspaceHandler.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="UI\RadialProgressBar.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\UserControls\AverageClassCouplingUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\UserControls\AverageCyclomaticComplexityUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\UserControls\ClassCouplingUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\UserControls\CyclomaticComplexityUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\UserControls\DepthOfInheritanceUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\UserControls\CircleProgressBarMiniUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\UserControls\ExecutableCodeLinesUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\UserControls\MaintainabilityIndexUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\UserControls\ProjectUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\UserControls\SourceCodeLinesUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\UserControls\TotalMetricUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Metrics.cs" />
-    <Compile Include="ProjectExtension.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <AdditionalFiles Include="..\DependencyValidation1\DependencyValidation1.layerdiagram">
       <Link>DependencyValidation1.layerdiagram</Link>
       <Visible>False</Visible>
     </AdditionalFiles>
-    <None Include="ClassDiagram.cd" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Analyzers\Single Analyzers\Style\" />
@@ -311,6 +98,7 @@
     <PackageReference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
       <Version>3.6.0</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Microsoft.Expression.Blend.SDK.WPF">
       <Version>4.0.0</Version>
     </PackageReference>
@@ -323,9 +111,11 @@
     <PackageReference Include="System.Collections">
       <Version>4.3.0</Version>
     </PackageReference>
+    <PackageReference Include="System.ComponentModel.Composition" Version="5.0.0" />
     <PackageReference Include="System.Composition">
       <Version>1.4.1</Version>
     </PackageReference>
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
     <PackageReference Include="System.Diagnostics.Debug">
       <Version>4.3.0</Version>
     </PackageReference>
@@ -360,5 +150,4 @@
       <Version>4.3.0</Version>
     </PackageReference>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
