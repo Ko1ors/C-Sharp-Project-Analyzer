@@ -41,7 +41,6 @@ namespace Analyzer_Test
 
         private void OpenSolution(String path)
         {
-            HideStartDialog();
             var handler = ProjectHandler.SetHandlers();
             var si = new SolutionInfo
             {
@@ -53,9 +52,12 @@ namespace Analyzer_Test
                 foreach(var m in result.Metric)
                 {
                     var projectUC = new ProjectUC();
-                    projectUC.SetProject(m);
+                    if (!projectUC.SetProject(m))
+                        return;
+
                     listView.Items.Add(projectUC);
                 }
+                HideStartDialog();
 
                 listView.Visibility = Visibility.Visible;
                 var solutions = new List<SolutionShortInfo>() { si };
