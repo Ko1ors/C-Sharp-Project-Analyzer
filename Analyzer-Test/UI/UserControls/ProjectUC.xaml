@@ -14,7 +14,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <GroupBox Header="{Binding ProjectName,ElementName=projectUC, FallbackValue= PROJECT NAME, Mode=TwoWay}" BorderThickness="1" BorderBrush="Gainsboro" FontFamily="Cyberpunk" FontSize="15">
+        <GroupBox Header="{Binding ProjectName,ElementName=projectUC, FallbackValue= PROJECT NAME, Mode=TwoWay}" BorderThickness="1" BorderBrush="Gainsboro" FontFamily="Arial Black" FontSize="15">
             <ListView x:Name="listView" MaxHeight="2000" Background="Gainsboro" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="4">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
